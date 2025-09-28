@@ -1,0 +1,142 @@
+.section {
+  width: 100%;
+  padding: 80px 0;
+  text-align: center;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #7a869a;
+  margin: 0;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #151d28;
+  margin: 8px 0 40px;
+  text-transform: uppercase;
+}
+
+/* Основний контейнер */
+.container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  gap: 40px;
+  background: #fff;
+  padding: 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+.image {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+}
+
+.image img {
+  width: 280px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 8px;
+  background: transparent; /* без фону */
+}
+
+/* Текстова частина */
+.content {
+  text-align: left;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.price {
+  color: #c7a17a;
+  font-weight: 700;
+  margin: 0 0 8px;
+}
+
+.name {
+  font-size: 20px;
+  font-weight: 700;
+  margin: 0 0 12px;
+}
+
+.desc {
+  color: #555;
+  font-size: 14px;
+  margin-bottom: 16px;
+  line-height: 1.6;
+}
+
+.meta {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 20px;
+  font-size: 14px;
+  color: #444;
+}
+
+.meta li {
+  margin-bottom: 6px;
+}
+
+.buttons {
+  display: flex;
+  gap: 12px;
+}
+
+.buy {
+  background: #c7a17a;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 25px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.details {
+  background: transparent;
+  border: none;
+  font-weight: 600;
+  cursor: pointer;
+  color: #2e3640;
+}
+
+/* Цифри праворуч */
+.nav {
+  position: absolute;
+  right: -88px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.num {
+  width: 88px;
+  height: 140px;
+  background: #edf0f5; /* сірий фон для неактивних */
+  color: #7a869a;
+  font-size: 16px;
+  font-weight: 600;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.active {
+  background: #fff; /* білий фон */
+  color: #151d28;   /* темний текст */
+  font-size: 18px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}

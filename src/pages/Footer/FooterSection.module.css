@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&family=Quicksand:wght@300;400;500;600;700&display=swap');
+
+.footer {
+  background-color: #EDF0F5;
+  height: 60px;
+  margin: 0;
+  display: flex;
+  align-items: center;  /* центруємо текст по вертикалі */
+  justify-content: center; /* центруємо текст по горизонталі */
+}
+
+.footer p {
+  font-family: 'Nunito' sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 22px;
+  color: #415167;
+  margin: 0;  
+}

@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&family=Quicksand:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&family=Quicksand:wght@300;400;500;600;700&display=swap');
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+.header {
+  height: 800px;
+  max-width: 1530px;
+  background: #EDF0F5;
+  position: relative;
+  overflow: hidden;
+}
+
+.container{
+    display:grid;
+    grid-template-columns: 420px minmax(300px, 2fr) 250px;
+    width: 100%;
+}
+
+.left {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* лого зверху, слоган унизу */
+}
+
+.logoLink {
+  display: inline-block; 
+  margin-top: 72px;     
+  margin-left: 180px;   
+  cursor: pointer;
+}
+
+.logo {
+  width: 124px;
+  height: 40px;
+  display: block; 
+  opacity: 1;
+}
+.slogan {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 900;
+  font-size: 54px;
+  line-height: 70px;
+  letter-spacing: 0;
+  margin-left: 180px;
+  position: static; 
+  margin-bottom: 160px;  
+}
+
+.bold {
+  background-color: #C7A17A;
+  color: #fff;
+  font-weight: 900;
+  position: relative; 
+  z-index:1 ;
+}
+.centre img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  display: block;
+}
+
+.right {
+  background-color: #415167; 
+  display: flex;
+  position: relative;
+  flex-direction: column;
+  height: 100%;
+}
+
+.navBar {
+  display: flex;
+  flex-direction: column; 
+  align-items: flex-start;
+}
+
+.cart {
+  width: 24px;
+  margin-top: 72px;     
+  margin-left: 60px;  
+}
+
+.menu {
+  list-style: none;  
+  margin-top: 150px;
+  margin-left: 60px;
+  padding: 0;
+  display: flex;
+  flex-direction: column; 
+  gap: 40px;               
+}
+
+.menuBtn {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0;
+  color: #EDF0F5;     
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.activeMenuBtn {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 100%;
+  letter-spacing: 0;
+  color: #EDF0F5;     
+  text-decoration: none;
+}
