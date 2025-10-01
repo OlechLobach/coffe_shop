@@ -7,7 +7,7 @@ export default function Footer(){
 
     return(
         <footer className={styles.footer}>
-            <p>© Revo Coffee Việt Nam - 2018</p>
+            <p>© Revo Coffee Vietnam - 2018</p>
         </footer>
     )
 }

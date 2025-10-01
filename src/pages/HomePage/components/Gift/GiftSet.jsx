@@ -1,5 +1,5 @@
 import styles from "./GiftSet.module.css";
-import giftImage from "../../assets/images/HomePage/Gift/giftSet.png"; 
+import giftImage from "../../../../assets/images/HomePage/Gift/giftSet.png"; 
 import React, { useState } from "react";
 
 const giftsetData = [

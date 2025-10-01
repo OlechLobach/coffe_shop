@@ -1,6 +1,6 @@
 import React, {  useState  } from "react";
 import styles from "./ComboPhin.module.css";
-import comboData from "../../data/HomePage/Combo/comboData";
+import comboData from "../../../../data/HomePage/Combo/comboData";
 
 export default function ComboSection() {
   const [startIndex, setStartIndex] = useState(0); 

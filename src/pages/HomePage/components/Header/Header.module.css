@@ -1,10 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&family=Quicksand:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&family=Quicksand:wght@300;400;500;600;700&display=swap');
+
 html,
 body {
   margin: 0;
   padding: 0;
 }
+
+/* Home Header */
 .header {
   height: 800px;
   max-width: 1530px;
@@ -13,10 +16,10 @@ body {
   overflow: hidden;
 }
 
-.container{
-    display:grid;
-    grid-template-columns: 420px minmax(300px, 2fr) 250px;
-    width: 100%;
+.container {
+  display:grid;
+  grid-template-columns: 420px minmax(300px, 2fr) 250px;
+  width: 100%;
 }
 
 .left {
@@ -38,6 +41,7 @@ body {
   display: block; 
   opacity: 1;
 }
+
 .slogan {
   font-family: 'Montserrat', sans-serif;
   font-weight: 900;
@@ -56,6 +60,7 @@ body {
   position: relative; 
   z-index:1 ;
 }
+
 .centre img {
   width: 100%;
   height: auto;
@@ -112,4 +117,81 @@ body {
   letter-spacing: 0;
   color: #EDF0F5;     
   text-decoration: none;
+}
+
+.defaultHeader {
+  width: 100%;
+  height: 80px;
+  background-color: #415167;
+  display: flex;
+  align-items: center; /* вертикальне вирівнювання */
+  justify-content: center; /* центруємо контейнер */
+  position: relative;
+}
+
+.defaultContainer {
+  display: flex;
+  align-items: center; /* все на одній горизонталі */
+  justify-content: space-between; /* лого зліва, меню по центру, корзина справа */
+  width: 100%;
+  max-width: 1530px;
+  padding: 0 40px; /* відступи з боків */
+  box-sizing: border-box;
+}
+
+.defaultLogoLink {
+  display: flex;
+  align-items: center; /* логотип на одній лінії */
+}
+
+.defaultLogo {
+  width: 124px;
+  height: 40px;
+  display: block;
+}
+
+.defaultLink {
+  flex: 1; /* меню займає решту простору між лого і корзиною */
+  display: flex;
+  justify-content: center; /* центр меню */
+}
+
+.defaultNavBar {
+  display: flex;
+}
+
+.defaultMenu {
+  display: flex;
+  gap: 40px; /* відстань між кнопками */
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  align-items: center; /* вертикально по центру */
+}
+
+.defaultMenuItems {}
+
+.defaultMenuLink {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  color: #EDF0F5;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.defaultMenuLink:hover,
+.defaultMenuLink.active {
+  color: #C7A17A;
+}
+
+.defaultCart {
+  display: flex;
+  align-items: center;
+}
+
+.cartIcon {
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
 }

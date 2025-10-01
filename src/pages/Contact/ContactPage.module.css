@@ -1,0 +1,152 @@
+.contactSection {
+  width: 100%;
+  min-height: 800px;
+  background: #f5f7fa;
+  display: flex;
+  justify-content: center;
+  padding: 100px 20px;
+  box-sizing: border-box;
+  font-family: 'Nunito', sans-serif;
+}
+
+.contactWrapper {
+  max-width: 900px;
+  width: 100%;
+  text-align: center;
+}
+
+.contactTitle {
+  font-size: 36px;
+  font-weight: 900;
+  color: #151d28;
+  margin-bottom: 10px;
+}
+
+.contactSubtitle {
+  font-size: 18px;
+  font-weight: 400;
+  color: #415167;
+  margin-bottom: 40px;
+}
+
+.contactContent {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.contactForm {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex: 1 1 400px;
+  position: relative;
+}
+
+.contactForm input,
+.contactForm textarea {
+  padding: 15px;
+  font-size: 16px;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  outline: none;
+  width: 100%;
+  box-sizing: border-box;
+  resize: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contactForm input:focus,
+.contactForm textarea:focus {
+  border-color: #c7a17a;
+  box-shadow: 0 0 5px rgba(199, 161, 122, 0.5);
+}
+
+.contactForm textarea {
+  min-height: 150px;
+}
+
+.contactForm button {
+  padding: 15px;
+  font-size: 18px;
+  border: none;
+  border-radius: 25px;
+  background-color: #c7a17a;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.contactForm button:hover:not(:disabled) {
+  background-color: #a07c58;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.contactForm button:disabled {
+  background-color: #d8c3aa;
+  cursor: not-allowed;
+}
+
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.4);
+  border-top: 3px solid #fff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.toast {
+  margin-top: 15px;
+  padding: 15px 25px;
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 600;
+  animation: fadeIn 0.4s ease, fadeOut 0.4s ease 2.5s forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeOut {
+  to { opacity: 0; transform: translateY(-10px); }
+}
+
+.error {
+  color: red;
+  font-weight: 600;
+}
+
+.contactInfo {
+  flex: 1 1 300px;
+  text-align: left;
+  color: #151d28;
+}
+
+.contactInfo h3 {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.contactInfo p {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+

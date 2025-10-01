@@ -1,6 +1,6 @@
 import { useRef, useState, useEffect } from "react";
 import styles from "./Products.module.css";
-import coffeeData from "../../data/HomePage/CoffeeSection/CoffeeData";
+import coffeeData from "../../../../data/HomePage/CoffeeSection/CoffeeData";
 
 function ProductsSection() {
   const scrollRef = useRef(null);

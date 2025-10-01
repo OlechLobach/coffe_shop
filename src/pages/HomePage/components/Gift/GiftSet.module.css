@@ -18,7 +18,6 @@
   text-transform: uppercase;
 }
 
-/* Основний контейнер */
 .container {
   position: relative;
   display: flex;
@@ -43,10 +42,10 @@
   height: auto;
   object-fit: contain;
   border-radius: 8px;
-  background: transparent; /* без фону */
+  background: transparent; 
 }
 
-/* Текстова частина */
+
 .content {
   text-align: left;
   flex: 1;
@@ -109,7 +108,6 @@
   color: #2e3640;
 }
 
-/* Цифри праворуч */
 .nav {
   position: absolute;
   right: -88px;
@@ -123,7 +121,7 @@
 .num {
   width: 88px;
   height: 140px;
-  background: #edf0f5; /* сірий фон для неактивних */
+  background: #edf0f5; 
   color: #7a869a;
   font-size: 16px;
   font-weight: 600;
@@ -135,8 +133,8 @@
 }
 
 .active {
-  background: #fff; /* білий фон */
-  color: #151d28;   /* темний текст */
+  background: #fff; 
+  color: #151d28;  
   font-size: 18px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }

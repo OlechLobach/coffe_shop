@@ -1,0 +1,217 @@
+.coffeePage {
+  width: 100%;
+  padding: 50px 20px;
+  box-sizing: border-box;
+  font-family: 'Nunito', sans-serif;
+  background: #f5f7fa;
+}
+
+.coffeeHeader {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.coffeeHeader h1 {
+  font-size: 36px;
+  font-weight: 900;
+  color: #151d28;
+  margin-bottom: 10px;
+}
+
+.coffeeHeader p {
+  font-size: 18px;
+  color: #415167;
+}
+
+/* Фільтри і пошук */
+.coffeeFilters {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.coffeeFilters input,
+.coffeeFilters select {
+  padding: 10px 15px;
+  font-size: 16px;
+  border-radius: 12px;
+  border: 1px solid #ccc;
+  outline: none;
+  position: relative;
+  background-color: #fff;
+  transition: all 0.3s ease;
+}
+
+/* Пошук і фокус */
+.coffeeFilters input:focus,
+.coffeeFilters select:focus {
+  border-color: #c7a17a;
+  box-shadow: 0 0 5px rgba(199, 161, 122, 0.5);
+  outline: none;
+}
+
+/* Кастомні select */
+.coffeeFilters select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding-right: 35px; /* відступ для стрілки */
+  color: #151d28;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg width='10' height='6' viewBox='0 0 10 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0l5 6 5-6H0z' fill='%23415167'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 10px 6px;
+}
+
+/* Сітка 3 колонки */
+.coffeeGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  justify-items: center;
+}
+
+.productCard {
+  background: #fff;
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 280px;
+}
+.productCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+
+}
+
+ .img:hover {
+  transform: scale(1.05);
+}
+
+.desc{
+    margin-top:15px;
+    text-align: left;
+    padding: 4px, 0
+}
+.productCard h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 10px 0 8px;
+  color: #151d28;
+  line-height: 1.2;
+}
+
+.productCard p {
+  font-size: 14px;
+  margin: 4px 0;
+  color: #415167;
+  line-height: 1.4;
+}
+
+.productCard p.price {
+  font-weight: 700;
+  color: #c7a17a;
+  font-size: 16px;
+}
+
+.productCard p.rating {
+  font-size: 14px;
+  margin: 6px 0 12px;
+  color: #f4b400;
+}
+
+.productCard button,
+.detailLink {
+  margin-top: 8px;
+  padding: 10px 20px;
+  font-size: 14px;
+  border-radius: 25px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.productCard button {
+  border: none;
+  background-color: #c7a17a;
+  color: #fff;
+}
+
+.productCard button:hover {
+  background-color: #a07c58;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.detailLink {
+  display: inline-block;
+  border: none;
+  background-color: #f0f0f0;
+  color: #151d28;
+  text-decoration: none;
+}
+
+.detailLink:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.noProducts {
+  min-height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 18px;
+  color: #415167;
+}
+
+.loadMoreWrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.loadMoreWrapper button {
+  padding: 12px 25px;
+  font-size: 16px;
+  border: none;
+  border-radius: 25px;
+  background-color: #c7a17a;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.loadMoreWrapper button:hover {
+  background-color: #a07c58;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+@media (max-width: 1024px) {
+  .coffeeGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .coffeeGrid {
+    grid-template-columns: 1fr;
+  }
+}
