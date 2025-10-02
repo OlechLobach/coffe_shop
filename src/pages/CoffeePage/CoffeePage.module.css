@@ -23,7 +23,6 @@
   color: #415167;
 }
 
-/* Фільтри і пошук */
 .coffeeFilters {
   display: flex;
   gap: 15px;
@@ -44,7 +43,6 @@
   transition: all 0.3s ease;
 }
 
-/* Пошук і фокус */
 .coffeeFilters input:focus,
 .coffeeFilters select:focus {
   border-color: #c7a17a;
@@ -52,21 +50,35 @@
   outline: none;
 }
 
-/* Кастомні select */
 .coffeeFilters select {
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
-  padding-right: 35px; /* відступ для стрілки */
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  padding: 10px 35px 10px 15px;
+  font-size: 16px;
   color: #151d28;
   cursor: pointer;
-  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg width='10' height='6' viewBox='0 0 10 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0l5 6 5-6H0z' fill='%23415167'/%3E%3C/svg%3E");
+  transition: all 0.3s ease;
+  background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0l5 6 5-6H0z' fill='%23415167'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 10px center;
   background-size: 10px 6px;
 }
 
-/* Сітка 3 колонки */
+.coffeeFilters select:focus {
+  border-color: #c7a17a;
+  box-shadow: 0 0 5px rgba(199,161,122,0.5);
+}
+
+.coffeeFilters option {
+  font-size: 15px;
+  color: #151d28;
+  background: #fff;
+}
+
 .coffeeGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

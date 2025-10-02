@@ -1,26 +1,32 @@
-import React from "react";
+import React, { useState, useContext } from "react";
 import { Link } from "react-router-dom";
-import { useState } from "react";
 import { coffeeProducts } from "../../data/CoffeePage/dataCoffee";
+import CustomSelect from "../../components/CustomSelect/CustomSelect"; 
+import { CartContext } from "../../Context/CartContext";
 import styles from "./CoffeePage.module.css";
 
 export default function CoffeePage() {
+  const { addToCart } = useContext(CartContext); // підключаємо контекст
   const [searchTerm, setSearchTerm] = useState("");
-  const [filterType, setFilterType] = useState("All");
-  const [filterRoast, setFilterRoast] = useState("All");
-  const [sortOption, setSortOption] = useState("default");
+  const [filterType, setFilterType] = useState("All Types");
+  const [filterRoast, setFilterRoast] = useState("All Roasts");
+  const [sortOption, setSortOption] = useState("Default");
   const [visibleCount, setVisibleCount] = useState(9);
 
   const filteredProducts = coffeeProducts
     .filter(product =>
       product.name.toLowerCase().includes(searchTerm.toLowerCase())
     )
-    .filter(product => filterType === "All" ? true : product.type === filterType)
-    .filter(product => filterRoast === "All" ? true : product.roast === filterRoast)
+    .filter(product =>
+      filterType === "All Types" ? true : product.type === filterType
+    )
+    .filter(product =>
+      filterRoast === "All Roasts" ? true : product.roast === filterRoast
+    )
     .sort((a, b) => {
-      if (sortOption === "price-asc") return a.price - b.price;
-      if (sortOption === "price-desc") return b.price - a.price;
-      if (sortOption === "rating-desc") return b.rating - a.rating;
+      if (sortOption === "Price: Low to High") return a.price - b.price;
+      if (sortOption === "Price: High to Low") return b.price - a.price;
+      if (sortOption === "Rating: High to Low") return b.rating - a.rating;
       return 0;
     });
 
@@ -35,7 +41,6 @@ export default function CoffeePage() {
         <p>Discover our finest coffee blends and beans.</p>
       </div>
 
-      {/* Пошук і фільтри */}
       <div className={styles.coffeeFilters}>
         <input
           type="text"
@@ -43,38 +48,47 @@ export default function CoffeePage() {
           value={searchTerm}
           onChange={e => setSearchTerm(e.target.value)}
         />
-        <select value={filterType} onChange={e => setFilterType(e.target.value)}>
-          <option value="All">All Types</option>
-          <option value="Arabica">Arabica</option>
-          <option value="Robusta">Robusta</option>
-          <option value="Blend">Blend</option>
-        </select>
-        <select value={filterRoast} onChange={e => setFilterRoast(e.target.value)}>
-          <option value="All">All Roasts</option>
-          <option value="Light">Light</option>
-          <option value="Medium">Medium</option>
-          <option value="Medium-Dark">Medium-Dark</option>
-          <option value="Dark">Dark</option>
-        </select>
-        <select value={sortOption} onChange={e => setSortOption(e.target.value)}>
-          <option value="default">Default</option>
-          <option value="price-asc">Price: Low to High</option>
-          <option value="price-desc">Price: High to Low</option>
-          <option value="rating-desc">Rating: High to Low</option>
-        </select>
+
+        <CustomSelect
+          options={["All Types", "Arabica", "Robusta", "Blend"]}
+          value={filterType}
+          onChange={setFilterType}
+        />
+
+        <CustomSelect
+          options={["All Roasts", "Light", "Medium", "Medium-Dark", "Dark"]}
+          value={filterRoast}
+          onChange={setFilterRoast}
+        />
+
+        <CustomSelect
+          options={[
+            "Default",
+            "Price: Low to High",
+            "Price: High to Low",
+            "Rating: High to Low",
+          ]}
+          value={sortOption}
+          onChange={setSortOption}
+        />
       </div>
 
       {visibleProducts.length > 0 ? (
         <div className={styles.coffeeGrid}>
           {visibleProducts.map(product => (
             <div key={product.id} className={styles.productCard}>
-                <img src={product.image} alt={product.name} className={styles.img}/>
-            <div className={styles.desc}>
-              <h3>{product.name}</h3>
-              <p className={styles.price}>${product.price.toFixed(2)}</p>
-              <p className={styles.rating}>Rating: {product.rating} ⭐</p>
-            </div>
-              <button>Add to Cart</button>
+              <img src={product.image} alt={product.name} className={styles.img}/>
+              <div className={styles.desc}>
+                <h3>{product.name}</h3>
+                <p className={styles.price}>${product.price.toFixed(2)}</p>
+                <p className={styles.rating}>Rating: {product.rating} ⭐</p>
+              </div>
+              <button
+                onClick={() => addToCart(product, 1)} // додаємо у кошик
+                className={styles.addToCartBtn}
+              >
+                Add to Cart
+              </button>
               <Link to={`/coffee/${product.id}`} className={styles.detailLink}>
                 View Details
               </Link>

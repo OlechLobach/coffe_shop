@@ -7,11 +7,10 @@ body {
   padding: 0;
 }
 
-/* Home Header */
 .header {
   height: 800px;
   max-width: 1530px;
-  background: #EDF0F5;
+  background: #f5f7fa;
   position: relative;
   overflow: hidden;
 }
