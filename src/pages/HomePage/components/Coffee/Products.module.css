@@ -129,7 +129,6 @@
   margin: 0 0 10px;
 }
 
-/* Кнопки */
 .buttons {
   display: flex;
   gap: 10px;
@@ -158,7 +157,6 @@
   text-decoration: underline;
 }
 
-/* Стрілки */
 .arrow {
   position: absolute;
   top: 50%;

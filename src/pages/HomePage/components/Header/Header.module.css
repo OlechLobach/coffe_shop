@@ -24,7 +24,7 @@ body {
 .left {
   display: flex;
   flex-direction: column;
-  justify-content: space-between; /* лого зверху, слоган унизу */
+  justify-content: space-between; 
 }
 
 .logoLink {
@@ -81,7 +81,14 @@ body {
   align-items: flex-start;
 }
 
-.cart {
+.cartIcon{
+  margin-top: 72px;
+  margin-left: 60px;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
+}
+.cartDefault {
   width: 24px;
   margin-top: 72px;     
   margin-left: 60px;  
@@ -123,24 +130,24 @@ body {
   height: 80px;
   background-color: #415167;
   display: flex;
-  align-items: center; /* вертикальне вирівнювання */
-  justify-content: center; /* центруємо контейнер */
+  align-items: center; 
+  justify-content: center; 
   position: relative;
 }
 
 .defaultContainer {
   display: flex;
-  align-items: center; /* все на одній горизонталі */
-  justify-content: space-between; /* лого зліва, меню по центру, корзина справа */
+  align-items: center; 
+  justify-content: space-between; 
   width: 100%;
   max-width: 1530px;
-  padding: 0 40px; /* відступи з боків */
+  padding: 0 40px;
   box-sizing: border-box;
 }
 
 .defaultLogoLink {
   display: flex;
-  align-items: center; /* логотип на одній лінії */
+  align-items: center; 
 }
 
 .defaultLogo {
@@ -150,9 +157,9 @@ body {
 }
 
 .defaultLink {
-  flex: 1; /* меню займає решту простору між лого і корзиною */
+  flex: 1; 
   display: flex;
-  justify-content: center; /* центр меню */
+  justify-content: center;
 }
 
 .defaultNavBar {
@@ -161,14 +168,13 @@ body {
 
 .defaultMenu {
   display: flex;
-  gap: 40px; /* відстань між кнопками */
+  gap: 40px; 
   list-style: none;
   margin: 0;
   padding: 0;
-  align-items: center; /* вертикально по центру */
+  align-items: center;
 }
 
-.defaultMenuItems {}
 
 .defaultMenuLink {
   font-family: 'Nunito', sans-serif;
@@ -189,7 +195,7 @@ body {
   align-items: center;
 }
 
-.cartIcon {
+.defaultCartIcon {
   width: 24px;
   height: 24px;
   cursor: pointer;

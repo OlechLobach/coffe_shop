@@ -1,4 +1,4 @@
-.coffeePage {
+.comboPage {
   width: 100%;
   padding: 50px 20px;
   box-sizing: border-box;
@@ -6,24 +6,24 @@
   background: #f5f7fa;
 }
 
-.coffeeHeader {
+.comboHeader {
   text-align: center;
   margin-bottom: 40px;
 }
 
-.coffeeHeader h1 {
+.comboHeader h1 {
   font-size: 36px;
   font-weight: 900;
   color: #151d28;
   margin-bottom: 10px;
 }
 
-.coffeeHeader p {
+.comboHeader p {
   font-size: 18px;
   color: #415167;
 }
 
-.coffeeFilters {
+.comboFilters {
   display: flex;
   gap: 15px;
   flex-wrap: wrap;
@@ -31,62 +31,29 @@
   margin-bottom: 40px;
 }
 
-.coffeeFilters input,
-.coffeeFilters select {
+.comboFilters input {
   padding: 10px 15px;
   font-size: 16px;
   border-radius: 12px;
   border: 1px solid #ccc;
-  outline: none;
-  position: relative;
   background-color: #fff;
   transition: all 0.3s ease;
 }
 
-.coffeeFilters input:focus,
-.coffeeFilters select:focus {
+.comboFilters input:focus {
   border-color: #c7a17a;
   box-shadow: 0 0 5px rgba(199, 161, 122, 0.5);
   outline: none;
 }
 
-.coffeeFilters select {
-  appearance: none;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  background-color: #fff;
-  border: 1px solid #ccc;
-  border-radius: 12px;
-  padding: 10px 35px 10px 15px;
-  font-size: 16px;
-  color: #151d28;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  background-image: url("data:image/svg+xml,%3Csvg width='10' height='6' viewBox='0 0 10 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0 0l5 6 5-6H0z' fill='%23415167'/%3E%3C/svg%3E");
-  background-repeat: no-repeat;
-  background-position: right 10px center;
-  background-size: 10px 6px;
-}
-
-.coffeeFilters select:focus {
-  border-color: #c7a17a;
-  box-shadow: 0 0 5px rgba(199,161,122,0.5);
-}
-
-.coffeeFilters option {
-  font-size: 15px;
-  color: #151d28;
-  background: #fff;
-}
-
-.coffeeGrid {
+.comboGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 40px; 
+  gap: 20px 15px; /* менші відступи по боках */
   justify-items: center;
 }
 
-.productCard {
+.comboCard {
   background: #fff;
   border-radius: 15px;
   padding: 20px;
@@ -99,86 +66,86 @@
   width: 100%;
   max-width: 280px;
 }
-.productCard:hover {
+
+.comboCard:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 25px rgba(0,0,0,0.15);
 }
 
 .img {
   width: 100%;
-  height: 100%;
+  border-radius: 10px;
   object-fit: cover;
   transition: transform 0.3s ease;
-
 }
 
-
-.desc{
-    margin-top:15px;
-    text-align: left;
-    padding: 4px, 0
+.img:hover {
+  transform: scale(1.03);
 }
-.productCard h3 {
+
+.desc {
+  margin-top: 12px;
+  text-align: left;
+}
+
+.desc h3 {
   font-size: 18px;
   font-weight: 700;
-  margin: 10px 0 8px;
+  margin-bottom: 8px;
   color: #151d28;
-  line-height: 1.2;
 }
 
-.productCard p {
-  font-size: 14px;
-  margin: 4px 0;
-  color: #415167;
-  line-height: 1.4;
-}
-
-.productCard p.price {
+.price {
   font-weight: 700;
   color: #c7a17a;
   font-size: 16px;
 }
 
-.productCard p.rating {
+.rating {
   font-size: 14px;
-  margin: 6px 0 12px;
   color: #f4b400;
+  margin-top: 4px;
 }
 
-.productCard button,
+.actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.addToCartBtn,
 .detailLink {
-  margin-top: 8px;
-  padding: 10px 20px;
+  flex: 1;
+  padding: 10px 0;
   font-size: 14px;
   border-radius: 25px;
   text-align: center;
   cursor: pointer;
   transition: all 0.3s ease;
+  border: none;
+  text-decoration: none;
 }
 
-.productCard button {
-  border: none;
+.addToCartBtn {
   background-color: #c7a17a;
   color: #fff;
 }
 
-.productCard button:hover {
+.addToCartBtn:hover {
   background-color: #a07c58;
   transform: translateY(-2px);
   box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
 
 .detailLink {
-  display: inline-block;
-  border: none;
   background-color: #f0f0f0;
   color: #151d28;
-  text-decoration: none;
 }
 
 .detailLink:hover {
+  background-color: #e0e0e0;
   transform: translateY(-2px);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
 
 .noProducts {
@@ -214,13 +181,13 @@
 }
 
 @media (max-width: 1024px) {
-  .coffeeGrid {
+  .comboGrid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
 @media (max-width: 600px) {
-  .coffeeGrid {
+  .comboGrid {
     grid-template-columns: 1fr;
   }
 }

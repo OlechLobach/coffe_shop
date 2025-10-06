@@ -25,9 +25,12 @@ function Header() {
           </div>
           <div className={styles.right}>
             <nav className={styles.navBar}>
-             
+                  <NavLink to="/cart" className={styles.defaultCart}>
+                    <img src={cartIcon} alt="cart icon" className={styles.cartIcon} />
+                  </NavLink>
               <ul className={styles.menu}>
                 <li>
+
                   <NavLink
                     to="/"
                     className={({ isActive }) =>
@@ -121,7 +124,7 @@ function Header() {
             </nav>
           </div>
           <NavLink to="/cart" className={styles.defaultCart}>
-                <img src={cartIcon} alt="cart icon" className={styles.cartIcon} />
+                <img src={cartIcon} alt="cart icon" className={styles.defaultCartIcon} />
           </NavLink>
         </div>
 

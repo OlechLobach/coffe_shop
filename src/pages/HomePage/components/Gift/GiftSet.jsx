@@ -1,5 +1,7 @@
 import styles from "./GiftSet.module.css";
 import giftImage from "../../../../assets/images/HomePage/Gift/giftSet.png"; 
+import giftImage2 from "../../../../assets/images/HomePage/Gift/giftset2Img.png"; 
+import giftImage3 from "../../../../assets/images/HomePage/Gift/giftSet3Img.png"; 
 import React, { useState } from "react";
 
 const giftsetData = [
@@ -14,7 +16,7 @@ const giftsetData = [
   },
   {
     id: 2,
-    img: giftImage,
+    img: giftImage2,
     price: "300.000",
     title: 'Giftset "Premium Coffee"',
     desc: "Hộp quà với cà phê cao cấp dành cho dịp đặc biệt...",
@@ -23,7 +25,7 @@ const giftsetData = [
   },
   {
     id: 3,
-    img: giftImage,
+    img: giftImage3,
     price: "260.000",
     title: 'Giftset "Classic"',
     desc: "Lựa chọn cổ điển cho mọi người yêu cà phê...",
