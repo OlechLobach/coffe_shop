@@ -1,48 +1,55 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { coffeeProducts } from "../../data/CoffeePage/dataCoffee";
-import CustomSelect from "../../components/CustomSelect/CustomSelect";
 import { CartContext } from "../../Context/CartContext";
 import useFilterProducts from "../../hooks/useFilterProducts";
+import CustomSelect from "../../components/CustomSelect/CustomSelect";
 import styles from "./CoffeePage.module.css";
 
 export default function CoffeePage() {
   const { addToCart } = useContext(CartContext);
 
   const {
-    searchTerm, setSearchTerm,
-    filters, setFilters,
-    sortOption, setSortOption,
-    visibleProducts, loadMore
+    searchTerm,
+    setSearchTerm,
+    filters,
+    setFilters,
+    sortOption,
+    setSortOption,
+    visibleProducts,
+    loadMore
   } = useFilterProducts(coffeeProducts, {
     type: ["All", "Arabica", "Robusta", "Blend"],
     roast: ["All", "Light", "Medium", "Medium-Dark", "Dark"]
   });
 
   return (
-    <section className={styles.coffeePage}>
-      <div className={styles.coffeeHeader}>
-        <h1>Our Coffee Selection</h1>
-        <p>Discover our finest coffee blends and beans.</p>
+    <section className={styles.phinPage}>
+      <div className={styles.phinHeader}>
+        <h1>Our Coffee Collection</h1>
+        <p>Explore our premium selection of Vietnamese coffee.</p>
       </div>
 
-      <div className={styles.coffeeFilters}>
+      <div className={styles.phinFilters}>
         <input
           type="text"
           placeholder="Search coffee..."
           value={searchTerm}
           onChange={e => setSearchTerm(e.target.value)}
         />
+
         <CustomSelect
-          options={filters.type ? ["All", "Arabica", "Robusta", "Blend"] : []}
+          options={["All", "Arabica", "Robusta", "Blend"]}
           value={filters.type}
           onChange={value => setFilters({ ...filters, type: value })}
         />
+
         <CustomSelect
-          options={filters.roast ? ["All", "Light", "Medium", "Medium-Dark", "Dark"] : []}
+          options={["All", "Light", "Medium", "Medium-Dark", "Dark"]}
           value={filters.roast}
           onChange={value => setFilters({ ...filters, roast: value })}
         />
+
         <CustomSelect
           options={["Default", "Price: Low to High", "Price: High to Low", "Rating: High to Low"]}
           value={sortOption}
@@ -51,21 +58,19 @@ export default function CoffeePage() {
       </div>
 
       {visibleProducts.length > 0 ? (
-        <div className={styles.coffeeGrid}>
+        <div className={styles.phinGrid}>
           {visibleProducts.map(product => (
-            <div key={product.id} className={styles.productCard}>
-              <img src={product.image} alt={product.name} className={styles.img}/>
+            <div key={product.id} className={styles.phinCard}>
+              <img src={product.image} alt={product.name} className={styles.img} />
               <div className={styles.desc}>
                 <h3>{product.name}</h3>
                 <p className={styles.price}>${product.price.toFixed(2)}</p>
-                <p className={styles.rating}>Rating: {product.rating} ⭐</p>
+                <p className={styles.rating}>⭐ {product.rating.toFixed(1)}</p>
               </div>
-              <button onClick={() => addToCart(product, 1)} className={styles.addToCartBtn}>
-                Add to Cart
-              </button>
-              <Link to={`/coffee/${product.id}`} className={styles.detailLink}>
-                View Details
-              </Link>
+              <div className={styles.buttonRow}>
+                <button onClick={() => addToCart(product, 1)}>Add to Cart</button>
+                <Link to={`/coffee/${product.id}`}>View Details</Link>
+              </div>
             </div>
           ))}
         </div>

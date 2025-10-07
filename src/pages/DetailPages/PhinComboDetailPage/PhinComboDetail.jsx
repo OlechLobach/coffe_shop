@@ -1,21 +1,21 @@
 import React, { useState, useContext } from "react";
 import { useParams, Link } from "react-router-dom";
-import { coffeeProducts } from "../../data/CoffeePage/dataCoffee";
-import { CartContext } from "../../Context/CartContext";
-import styles from "./CoffeeDetail.module.css";
+import { phinComboProducts } from "../../../data/PhinComboPage/dataPhinCombo";
+import { CartContext } from "../../../Context/CartContext";
+import styles from "./PhinComboDetail.module.css";
 
-export default function CoffeeDetail() {
+export default function PhinComboDetail() {
   const { id } = useParams();
-  const product = coffeeProducts.find(p => p.id.toString() === id);
-
-  const [quantity, setQuantity] = useState(1);
   const { addToCart } = useContext(CartContext);
+  const [quantity, setQuantity] = useState(1);
+
+  const product = phinComboProducts.find(item => item.id === id);
 
   if (!product) {
     return (
       <div className={styles.notFound}>
         <h2>Product not found</h2>
-        <Link to="/coffee" className={styles.backLink}>Back to Coffee Page</Link>
+        <Link to="/phin-combo" className={styles.backLink}>Back to Combos</Link>
       </div>
     );
   }
@@ -29,19 +29,17 @@ export default function CoffeeDetail() {
 
   return (
     <section className={styles.detailPage}>
-      <Link to="/coffee" className={styles.backLink}>← Back to Coffee Selection</Link>
+      <Link to="/phin-combo" className={styles.backLink}>← Back to Combos</Link>
 
       <div className={styles.detailContainer}>
         <div className={styles.imageWrapper}>
           <img src={product.image} alt={product.name} className={styles.productImage} />
         </div>
 
-        <div className={styles.infoWrapper}>
+        <div className={styles.infoWrapper}>    
           <h1 className={styles.productName}>{product.name}</h1>
-          <p className={styles.type}>Type: {product.type}</p>
-          <p className={styles.roast}>Roast: {product.roast}</p>
           <p className={styles.price}>${product.price.toFixed(2)}</p>
-          <p className={styles.rating}>Rating: {product.rating} ⭐</p>
+          <p className={styles.rating}>⭐ {product.rating}</p>
 
           <div className={styles.quantity}>
             <button onClick={decrement} className={styles.qtyButton}>-</button>
@@ -49,25 +47,26 @@ export default function CoffeeDetail() {
             <button onClick={increment} className={styles.qtyButton}>+</button>
           </div>
 
-          <button className={styles.addToCart} onClick={handleAddToCart}>Add to Cart</button>
+          <button onClick={handleAddToCart} className={styles.addToCart}>Add to Cart</button>
 
           <div className={styles.description}>
             <h3>Description:</h3>
             <p>{product.description}</p>
-          </div>
 
-          <div className={styles.additionalInfo}>
-            <h4>Additional Info:</h4>
-            <p>Origin: {product.origin || "Various"}</p>
-            <p>Recommended brewing: {product.brewing || "Any preferred method"}</p>
+            <h4>Items included:</h4>
+            <ul>
+              {product.items.map((item, idx) => (
+                <li key={idx}>{item}</li>
+              ))}
+            </ul>
           </div>
         </div>
       </div>
 
       <div className={styles.relatedProducts}>
-        <h3>Related Coffees</h3>
+        <h3>Other Combos You May Like</h3>
         <div className={styles.relatedGrid}>
-          {coffeeProducts
+          {phinComboProducts
             .filter(p => p.id !== product.id)
             .slice(0, 4)
             .map(p => (
@@ -76,7 +75,7 @@ export default function CoffeeDetail() {
                 <div className={styles.relatedInfo}>
                   <p className={styles.relatedName}>{p.name}</p>
                   <p className={styles.relatedPrice}>${p.price.toFixed(2)}</p>
-                  <Link to={`/coffee/${p.id}`} className={styles.detailLink}>View Details</Link>
+                  <Link to={`/phin-combo/${p.id}`} className={styles.detailLink}>View Details</Link>
                 </div>
               </div>
             ))}

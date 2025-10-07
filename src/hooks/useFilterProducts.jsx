@@ -16,18 +16,25 @@ export default function useFilterProducts(initialProducts, filterOptions = {}) {
   const filteredProducts = useMemo(() => {
     let result = [...initialProducts];
 
+    // Фільтр по пошуку
     if (searchTerm) {
       result = result.filter(item =>
         item.name.toLowerCase().includes(searchTerm.toLowerCase())
       );
     }
 
+    // Фільтри по категорії та ін.
     Object.keys(filters).forEach(key => {
       if (filters[key] && filters[key] !== "All") {
-        result = result.filter(item => item[key] === filters[key]);
+        result = result.filter(item => {
+          // якщо у товара немає category, повертаємо false
+          if (key === "category") return item.category === filters[key];
+          return item[key] === filters[key];
+        });
       }
     });
 
+    // Сортування
     if (sortOption === "Price: Low to High") result.sort((a, b) => a.price - b.price);
     else if (sortOption === "Price: High to Low") result.sort((a, b) => b.price - a.price);
     else if (sortOption === "Rating: High to Low") result.sort((a, b) => b.rating - a.rating);
@@ -39,10 +46,14 @@ export default function useFilterProducts(initialProducts, filterOptions = {}) {
   const loadMore = () => setVisibleCount(prev => prev + 9);
 
   return {
-    searchTerm, setSearchTerm,
-    filters, setFilters,
-    sortOption, setSortOption,
-    visibleProducts, loadMore,
+    searchTerm,
+    setSearchTerm,
+    filters,
+    setFilters,
+    sortOption,
+    setSortOption,
+    visibleProducts,
+    loadMore,
     filteredProducts
   };
 }

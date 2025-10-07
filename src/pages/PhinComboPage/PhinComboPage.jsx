@@ -52,7 +52,7 @@ export default function PhinComboPage() {
                 <button onClick={() => addToCart(product, 1)} className={styles.addToCartBtn}>
                   Add to Cart
                 </button>
-                <Link to={`/phincombo/${product.id}`} className={styles.detailLink}>
+                <Link to={`/phin-combo/${product.id}`} className={styles.detailLink}>
                   View Details
                 </Link>
               </div>
