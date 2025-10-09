@@ -1,7 +1,7 @@
-import phin1 from "../../assets/images/ColoredPhin/phin1.png"
-import phin2 from "../../assets/images/ColoredPhin/phin2.png"
-import phin3 from "../../assets/images/ColoredPhin/phin3.png"
-import phin4 from "../../assets/images/ColoredPhin/phin4.png"
+import phin1 from "../../assets/images/ColoredPhin/phin1.png";
+import phin2 from "../../assets/images/ColoredPhin/phin2.png";
+import phin3 from "../../assets/images/ColoredPhin/phin3.png";
+import phin4 from "../../assets/images/ColoredPhin/phin4.png";
 
 export const coloredPhinProducts = [
   {
@@ -10,7 +10,8 @@ export const coloredPhinProducts = [
     color: "Red",
     price: 12.99,
     rating: 4.7,
-    image: phin1
+    image: phin1,
+    category: "Colored Phin"
   },
   {
     id: "Blue-Capsule",
@@ -18,7 +19,8 @@ export const coloredPhinProducts = [
     color: "Blue",
     price: 12.99,
     rating: 4.5,
-    image: phin2
+    image: phin2,
+    category: "Colored Phin"
   },
   {
     id: "Green-Capsule",
@@ -26,7 +28,8 @@ export const coloredPhinProducts = [
     color: "Green",
     price: 12.99,
     rating: 4.6,
-    image: phin3
+    image: phin3,
+    category: "Colored Phin"
   },
   {
     id: "Yellow-Capsule",
@@ -34,7 +37,8 @@ export const coloredPhinProducts = [
     color: "Yellow",
     price: 12.99,
     rating: 4.3,
-    image: phin4
+    image: phin4,
+    category: "Colored Phin"
   },
   {
     id: "Purple-Capsule",
@@ -42,7 +46,8 @@ export const coloredPhinProducts = [
     color: "Purple",
     price: 12.99,
     rating: 4.8,
-    image: phin1
+    image: phin1,
+    category: "Colored Phin"
   },
   {
     id: "Orange-Capsule",
@@ -50,7 +55,8 @@ export const coloredPhinProducts = [
     color: "Orange",
     price: 12.99,
     rating: 4.4,
-    image: phin2
+    image: phin2,
+    category: "Colored Phin"
   },
   {
     id: "Pink-Capsule",
@@ -58,7 +64,8 @@ export const coloredPhinProducts = [
     color: "Pink",
     price: 12.99,
     rating: 4.5,
-    image: phin3
+    image: phin3,
+    category: "Colored Phin"
   },
   {
     id: "Cyan-Capsule",
@@ -66,7 +73,8 @@ export const coloredPhinProducts = [
     color: "Cyan",
     price: 12.99,
     rating: 4.2,
-    image: phin4
+    image: phin4,
+    category: "Colored Phin"
   },
   {
     id: "Black-Capsule",
@@ -74,7 +82,8 @@ export const coloredPhinProducts = [
     color: "Black",
     price: 12.99,
     rating: 4.9,
-    image: phin1
+    image: phin1,
+    category: "Colored Phin"
   },
   {
     id: "White-Capsule",
@@ -82,7 +91,8 @@ export const coloredPhinProducts = [
     color: "White",
     price: 12.99,
     rating: 4.1,
-    image: phin2
+    image: phin2,
+    category: "Colored Phin"
   },
   {
     id: "Silver-Capsule",
@@ -90,7 +100,8 @@ export const coloredPhinProducts = [
     color: "Silver",
     price: 12.99,
     rating: 4.6,
-    image: phin3
+    image: phin3,
+    category: "Colored Phin"
   },
   {
     id: "Gold-Capsule",
@@ -98,6 +109,10 @@ export const coloredPhinProducts = [
     color: "Gold",
     price: 12.99,
     rating: 4.8,
-    image: phin4
+    image: phin4,
+    category: "Colored Phin"
   }
 ];
+
+
+

@@ -10,7 +10,7 @@ export default function CartPage() {
 
   const filteredItems = filterType === "All" ? cartItems : cartItems.filter(item => item.category === filterType);
 
-  const productTypes = ["All", "Coffee", "Gift Set", "Phin Combo"]; // приклад категорій
+  const productTypes = ["All", "Coffee", "Gift Set", "Phin Combo","Colored Phin"]; 
 
   const handleOrder = () => {
     alert("Order has been placed!");
@@ -24,7 +24,7 @@ export default function CartPage() {
       </div>
 
       {cartItems.length > 0 && (
-        <div className={styles.cartActions}>
+        <div className={styles.cartActions}>  
           <CustomSelect
             options={productTypes}
             value={filterType}

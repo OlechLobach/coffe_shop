@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Nunito:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;900&family=Nunito:wght@400;600;700;800;900&display=swap');
 
 .detailPage {
   padding: 40px;
@@ -26,6 +26,10 @@
   flex-wrap: wrap;
   gap: 40px;
   margin-bottom: 60px;
+  background: #fff;
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.05);
 }
 
 .imageWrapper {
@@ -40,7 +44,6 @@
   max-width: 500px;
   border-radius: 12px;
   object-fit: cover;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
 }
 
 .infoWrapper {
@@ -116,20 +119,17 @@
   transform: translateY(-2px);
 }
 
-.description h3, .additionalInfo h4 {
+.description h3,
+.description h4 {
   font-weight: 700;
   font-size: 20px;
   margin: 16px 0 8px;
 }
 
-.description p, .additionalInfo ul {
+.description p {
   font-size: 16px;
+  font-style: italic;
   color: #415167;
-}
-
-.additionalInfo ul {
-  padding-left: 20px;
-  margin-top: 8px;
 }
 
 .relatedProducts {
@@ -152,19 +152,19 @@
 
 .relatedCard {
   display: flex;
-  flex-direction: row; 
+  flex-direction: row;
   align-items: center;
   gap: 16px;
   background: #fff;
   border-radius: 12px;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.08);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
   padding: 16px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .relatedCard:hover {
   transform: translateY(-4px);
-  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
 }
 
 .relatedCard img {
@@ -223,10 +223,4 @@
 
 .notFound .backLink {
   font-size: 16px;
-}
-
-@media (max-width: 1024px) {
-  .detailContainer {
-    flex-direction: column;
-  }
 }

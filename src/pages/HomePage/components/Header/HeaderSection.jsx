@@ -1,4 +1,6 @@
+import React from "react";
 import { NavLink, useLocation } from "react-router-dom";
+import { useAuth } from "../../../../Context/AuthContext";
 import styles from "./Header.module.css";
 import logo from "../../../../assets/images/HomePage/Header/logo.png";
 import cartIcon from "../../../../assets/images/HomePage/Header/cart.png";
@@ -7,6 +9,7 @@ import heroImage from "../../../../assets/images/HomePage/Header/hero.jpg";
 function Header() {
   const location = useLocation();
   const isHome = location.pathname === "/";
+  const { user } = useAuth(); // отримуємо користувача
 
   return (
     <header className={isHome ? styles.header : styles.defaultHeader}>
@@ -20,17 +23,19 @@ function Header() {
               YOUR <span className={styles.bold}>PERSONALIZED</span> COFFEE
             </h2>
           </div>
+
           <div className={styles.centre}>
             <img src={heroImage} alt="hero" className={styles.heroImage} />
           </div>
+
           <div className={styles.right}>
             <nav className={styles.navBar}>
-                  <NavLink to="/cart" className={styles.defaultCart}>
-                    <img src={cartIcon} alt="cart icon" className={styles.cartIcon} />
-                  </NavLink>
+              <NavLink to="/cart" className={styles.cartIconWrapper}>
+                <img src={cartIcon} alt="cart icon" className={styles.cartIcon} />
+              </NavLink>
+
               <ul className={styles.menu}>
                 <li>
-
                   <NavLink
                     to="/"
                     className={({ isActive }) =>
@@ -41,7 +46,7 @@ function Header() {
                   </NavLink>
                 </li>
                 <li>
-                  <NavLink  
+                  <NavLink
                     to="/coffee"
                     className={({ isActive }) =>
                       isActive ? styles.activeMenuBtn : styles.menuBtn
@@ -90,6 +95,14 @@ function Header() {
                     Contact
                   </NavLink>
                 </li>
+                <li>
+                  <NavLink
+                    to={user ? "/profile" : "/signup"} // веде на профіль, якщо увійшов
+                    className={styles.signupBtn}
+                  >
+                    {user ? "Profile" : "Create Account"}
+                  </NavLink>
+                </li>
               </ul>
             </nav>
           </div>
@@ -97,37 +110,58 @@ function Header() {
       ) : (
         <div className={styles.defaultContainer}>
           <NavLink to="/" className={styles.defaultLogoLink}>
-          <img src={logo} alt="LOGO REVO COFFEE" className={styles.defaultLogo}/>
+            <img src={logo} alt="LOGO REVO COFFEE" className={styles.defaultLogo} />
           </NavLink>
+
           <div className={styles.defaultLink}>
             <nav className={styles.defaultNavBar}>
               <ul className={styles.defaultMenu}>
-                <li className={styles.defaultMenuItems}>
-                  <NavLink to="/" className={styles.defaultMenuLink}>Home</NavLink>
+                <li>
+                  <NavLink to="/" className={styles.defaultMenuLink}>
+                    Home
+                  </NavLink>
                 </li>
-                <li className={styles.defaultMenuItems}>
-                  <NavLink to="/Coffee" className={styles.defaultMenuLink}>Coffee</NavLink>
+                <li>
+                  <NavLink to="/coffee" className={styles.defaultMenuLink}>
+                    Coffee
+                  </NavLink>
                 </li>
-                <li className={styles.defaultMenuItems}>
-                  <NavLink to="colored-phin" className={styles.defaultMenuLink}>Colored Phin</NavLink>
+                <li>
+                  <NavLink to="/colored-phin" className={styles.defaultMenuLink}>
+                    Colored Phin
+                  </NavLink>
                 </li>
-                <li className={styles.defaultMenuItems}>
-                  <NavLink to="/phin-combo" className={styles.defaultMenuLink}>Phin Combo</NavLink>
+                <li>
+                  <NavLink to="/phin-combo" className={styles.defaultMenuLink}>
+                    Phin Combo
+                  </NavLink>
                 </li>
-                <li className={styles.defaultMenuItems}>
-                  <NavLink to="/gift-set" className={styles.defaultMenuLink}>Gift Set</NavLink>
+                <li>
+                  <NavLink to="/gift-set" className={styles.defaultMenuLink}>
+                    Gift Set
+                  </NavLink>
                 </li>
-                <li className={styles.defaultMenuItems}>
-                  <NavLink to="/contact" className={styles.defaultMenuLink}>Contact</NavLink>
+                <li>
+                  <NavLink to="/contact" className={styles.defaultMenuLink}>
+                    Contact
+                  </NavLink>
+                </li>
+                <li>
+                  <NavLink
+                    to={user ? "/profile" : "/signup"}
+                    className={styles.defaultSignupBtn}
+                  >
+                    {user ? "Profile" : "Create Account"}
+                  </NavLink>
                 </li>
               </ul>
             </nav>
           </div>
+
           <NavLink to="/cart" className={styles.defaultCart}>
-                <img src={cartIcon} alt="cart icon" className={styles.defaultCartIcon} />
+            <img src={cartIcon} alt="cart icon" className={styles.defaultCartIcon} />
           </NavLink>
         </div>
-
       )}
     </header>
   );

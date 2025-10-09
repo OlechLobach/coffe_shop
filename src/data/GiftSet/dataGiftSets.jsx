@@ -11,6 +11,7 @@ export const giftSetProducts = [
     rating: 4.8,
     image: gift1,
     items: ["Phin Filter", "250g Coffee", "Bamboo Coaster"],
+    category:"Gift Set"
   },
   {
     id: "gift2",
@@ -20,6 +21,7 @@ export const giftSetProducts = [
     rating: 4.7,
     image: gift2,
     items: ["Gold Phin", "Medium Roast", "Travel Cup"],
+    category:"Gift Set"
   },
   {
     id: "gift3",
@@ -29,6 +31,7 @@ export const giftSetProducts = [
     rating: 4.9,
     image: gift3,
     items: ["Engraved Phin", "Artisan Roast", "Serving Tray"],
+    category:"Gift Set"
   },
   {
     id: "gift4",
@@ -38,6 +41,7 @@ export const giftSetProducts = [
     rating: 4.6,
     image: gift1,
     items: ["Phin Filter", "Coffee 250g", "Coaster"],
+    category:"Gift Set"
   },
   {
     id: "gift5",
@@ -47,6 +51,7 @@ export const giftSetProducts = [
     rating: 4.5,
     image: gift2,
     items: ["Gold Phin", "Medium Roast", "Travel Cup"],
+    category:"Gift Set"
   },
   {
     id: "gift6",
@@ -56,5 +61,6 @@ export const giftSetProducts = [
     rating: 4.9,
     image: gift3,
     items: ["Engraved Phin", "Artisan Roast", "Serving Tray"],
-  },
+    category:"Gift Set"
+  }
 ];

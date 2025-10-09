@@ -1,17 +1,24 @@
-import React, {  useState  } from "react";
+import React, { useState } from "react";
 import styles from "./ComboPhin.module.css";
 import comboData from "../../../../data/HomePage/Combo/comboData";
 
 export default function ComboSection() {
-  const [startIndex, setStartIndex] = useState(0); 
-  const visibleCount = 3; 
+  const [currentIndex, setCurrentIndex] = useState(0);
 
   const handlePrev = () => {
-    setStartIndex((prev) => Math.max(prev - 1, 0));
+    setCurrentIndex((prev) => (prev - 1 + comboData.length) % comboData.length);
   };
 
   const handleNext = () => {
-    setStartIndex((prev) => Math.min(prev + 1, comboData.length - visibleCount));
+    setCurrentIndex((prev) => (prev + 1) % comboData.length);
+  };
+
+  const getPosition = (index) => {
+    const total = comboData.length;
+    if (index === currentIndex) return "center";
+    if (index === (currentIndex - 1 + total) % total) return "left";
+    if (index === (currentIndex + 1) % total) return "right";
+    return "hidden";
   };
 
   return (
@@ -22,44 +29,36 @@ export default function ComboSection() {
       </div>
 
       <div className={styles.container}>
-        <button
-          className={`${styles.arrow} ${styles.prev}`}
-          onClick={handlePrev}
-          disabled={startIndex === 0}
-        >
+        <button className={`${styles.arrow} ${styles.prev}`} onClick={handlePrev}>
           ←
-        </button>
-        <button
-          className={`${styles.arrow} ${styles.next}`}
-          onClick={handleNext}
-          disabled={startIndex >= comboData.length - visibleCount}
-        >
-          →
         </button>
 
         <div className={styles.sliderWrapper}>
-          <div className={styles.left}>
-            {comboData
-              .slice(startIndex, startIndex + visibleCount)
-              .map((combo) => (
-                <div className={styles.card} key={combo.id}>
-                  <div className={styles.cardImg}>
-                    <img src={combo.img} alt={combo.name} />
-                  </div>
-                  <div className={styles.allPrice}>
-                    <p className={styles.newPrice}>{combo.price}</p>
-                    <p className={styles.oldPrice}>{combo.oldPrice}</p>
-                  </div>
-                  <h3 className={styles.coffeeName}>{combo.name}</h3>
-                  <p className={styles.description}>{combo.desc}</p>
-                  <div className={styles.buttons}>
-                    <button className={styles.btn}>Buy Now</button>
-                    <button className={styles.btn}>Details</button>
-                  </div>
+          {comboData.map((combo, index) => {
+            const position = getPosition(index);
+            return (
+              <div key={combo.id} className={`${styles.card} ${styles[position]}`}>
+                <div className={styles.cardImg}>
+                  <img src={combo.img} alt={combo.name} />
                 </div>
-              ))}
-          </div>
+                <div className={styles.allPrice}>
+                  <p className={styles.newPrice}>{combo.price}</p>
+                  <p className={styles.oldPrice}>{combo.oldPrice}</p>
+                </div>
+                <h3 className={styles.coffeeName}>{combo.name}</h3>
+                <p className={styles.description}>{combo.desc}</p>
+                <div className={styles.buttons}>
+                  <button className={styles.btn}>Buy Now</button>
+                  <button className={styles.btn}>Details</button>
+                </div>
+              </div>
+            );
+          })}
         </div>
+
+        <button className={`${styles.arrow} ${styles.next}`} onClick={handleNext}>
+          →
+        </button>
 
         <div className={styles.rightBackground}></div>
       </div>

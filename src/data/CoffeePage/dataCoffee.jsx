@@ -13,7 +13,8 @@ export const coffeeProducts = [
     roast: "Medium",
     rating: 4.5,
     image: coffee1,
-    description: "Smooth and fruity coffee from Ethiopia."
+    description: "Smooth and fruity coffee from Ethiopia.",
+    category:"Coffee"
   },
   {
     id: "Colombian-Supremo",
@@ -23,7 +24,8 @@ export const coffeeProducts = [
     roast: "Medium-Dark",
     rating: 4.8,
     image: coffee2,
-    description: "Rich flavor with hints of chocolate and nuts."
+    description: "Rich flavor with hints of chocolate and nuts.",
+    category:"Coffee"
   },
   {
     id: "Vietnamese-Robusta",
@@ -33,7 +35,8 @@ export const coffeeProducts = [
     roast: "Dark",
     rating: 4.2,
     image: coffee3,
-    description: "Strong and bold, perfect for espresso lovers."
+    description: "Strong and bold, perfect for espresso lovers.",
+    category:"Coffee"
   },
   {
     id: "Brazilian-Santos",
@@ -43,7 +46,8 @@ export const coffeeProducts = [
     roast: "Medium",
     rating: 4.4,
     image: coffee4,
-    description: "Balanced flavor with mild acidity and chocolate notes."
+    description: "Balanced flavor with mild acidity and chocolate notes.",
+    category:"Coffee"
   },
   {
     id: "Guatemalan-Huehuetenango",
@@ -53,7 +57,8 @@ export const coffeeProducts = [
     roast: "Medium-Dark",
     rating: 4.7,
     image: coffee5,
-    description: "Complex coffee with floral aroma and sweet finish."
+    description: "Complex coffee with floral aroma and sweet finish.",
+    category:"Coffee"
   },
   {
     id: "Indonesian-Sumatra",
@@ -63,7 +68,8 @@ export const coffeeProducts = [
     roast: "Dark",
     rating: 4.3,
     image: coffee1,
-    description: "Earthy and full-bodied coffee with low acidity."
+    description: "Earthy and full-bodied coffee with low acidity.",
+    category:"Coffee"
   },
   {
     id: "Kenyan-AA",
@@ -73,7 +79,8 @@ export const coffeeProducts = [
     roast: "Medium",
     rating: 4.9,
     image: coffee2,
-    description: "Bright and fruity with wine-like flavor notes."
+    description: "Bright and fruity with wine-like flavor notes.",
+    category:"Coffee"
   },
   {
     id: "Mocha-Java",
@@ -83,7 +90,8 @@ export const coffeeProducts = [
     roast: "Medium-Dark",
     rating: 4.6,
     image: coffee3,
-    description: "Classic blend with chocolate undertones and smooth body."
+    description: "Classic blend with chocolate undertones and smooth body.",
+    category:"Coffee"
   },
   {
     id: "Costa-Rican-Tarrazu",
@@ -93,7 +101,8 @@ export const coffeeProducts = [
     roast: "Medium",
     rating: 4.5,
     image: coffee4,
-    description: "Bright acidity with sweet citrus notes."
+    description: "Bright acidity with sweet citrus notes.",
+    category:"Coffee"
   },
   {
     id: "Honduran-Marcala",
@@ -103,7 +112,8 @@ export const coffeeProducts = [
     roast: "Medium",
     rating: 4.4,
     image: coffee5,
-    description: "Smooth and chocolatey, mild finish."
+    description: "Smooth and chocolatey, mild finish.",
+    category:"Coffee"
   },
   {
     id: "Peruvian-Chanchamayo",
@@ -113,7 +123,8 @@ export const coffeeProducts = [
     roast: "Medium",
     rating: 4.3,
     image: coffee1,
-    description: "Nutty aroma with subtle fruity hints."
+    description: "Nutty aroma with subtle fruity hints.",
+    category:"Coffee"
   },
   {
     id: "Tanzanian-Peaberry",
@@ -123,7 +134,8 @@ export const coffeeProducts = [
     roast: "Medium-Dark",
     rating: 4.7,
     image: coffee2,
-    description: "Bright and crisp with floral notes."
+    description: "Bright and crisp with floral notes.",
+    category:"Coffee"
   },
   {
     id: "Nicaraguan-Segovia",
@@ -133,7 +145,8 @@ export const coffeeProducts = [
     roast: "Medium",
     rating: 4.4,
     image: coffee3,
-    description: "Balanced body with mild acidity."
+    description: "Balanced body with mild acidity.",
+    category:"Coffee"
   },
   {
     id: "Sumatran-Mandheling",
@@ -143,7 +156,8 @@ export const coffeeProducts = [
     roast: "Dark",
     rating: 4.5,
     image: coffee4,
-    description: "Earthy and full-bodied coffee, low acidity."
+    description: "Earthy and full-bodied coffee, low acidity.",
+    category:"Coffee"
   },
   {
     id: "Indian-Monsoon-Malabar",
@@ -153,6 +167,7 @@ export const coffeeProducts = [
     roast: "Medium-Dark",
     rating: 4.2,
     image: coffee5,
-    description: "Spicy and bold, perfect for espresso blends."
+    description: "Spicy and bold, perfect for espresso blends.",
+    category:"Coffee"
   }
 ];

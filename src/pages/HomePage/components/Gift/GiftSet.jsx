@@ -9,8 +9,8 @@ const giftsetData = [
     id: 1,
     img: giftImage,
     price: "285.000",
-    title: 'Giftset "Cà phê phin Việt Nam"',
-    desc: "Món quà tuyệt vời dành cho người sành cà phê...",
+    title: 'Giftset "Vietnamese Phin Coffee"',
+    desc: "A wonderful gift for true coffee enthusiasts...",
     bean: "Fine Robusta Blend",
     altitude: "700 - 800m",
   },
@@ -19,7 +19,7 @@ const giftsetData = [
     img: giftImage2,
     price: "300.000",
     title: 'Giftset "Premium Coffee"',
-    desc: "Hộp quà với cà phê cao cấp dành cho dịp đặc biệt...",
+    desc: "A premium coffee gift box for special occasions...",
     bean: "Arabica Blend",
     altitude: "1200m",
   },
@@ -28,11 +28,12 @@ const giftsetData = [
     img: giftImage3,
     price: "260.000",
     title: 'Giftset "Classic"',
-    desc: "Lựa chọn cổ điển cho mọi người yêu cà phê...",
+    desc: "A classic choice for every coffee lover...",
     bean: "Robusta",
     altitude: "600 - 700m",
   },
 ];
+
 
 const GiftsetSection = () => {
   const [active, setActive] = useState(0);
@@ -56,8 +57,8 @@ const GiftsetSection = () => {
             <li>⛰ {giftsetData[active].altitude}</li>
           </ul>
           <div className={styles.buttons}>
-            <button className={styles.buy}>MUA NGAY</button>
-            <button className={styles.details}>CHI TIẾT</button>
+            <button className={styles.buy}>Buy Now</button>
+            <button className={styles.details}>Details</button>
           </div>
         </div>
 

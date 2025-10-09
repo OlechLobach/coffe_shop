@@ -1,50 +1,23 @@
-import { useRef, useState, useEffect } from "react";
+import { useState } from "react";
 import styles from "./Products.module.css";
 import coffeeData from "../../../../data/HomePage/CoffeeSection/CoffeeData";
 
-function ProductsSection() {
-  const scrollRef = useRef(null);
-  const [isStart, setIsStart] = useState(true);
-  const [isEnd, setIsEnd] = useState(false);
-  const [overlayOpacity, setOverlayOpacity] = useState(1);
+export default function ProductsCarousel() {
+  // розбиваємо на слайди по 2 картки
+  const slides = [];
+  for (let i = 0; i < coffeeData.length; i += 2) {
+    slides.push(coffeeData.slice(i, i + 2));
+  }
 
-  const handleScroll = () => {
-    const el = scrollRef.current;
-    if (!el) return;
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const totalSlides = slides.length;
 
-    const scrollLeft = el.scrollLeft;
-    const maxScroll = el.scrollWidth - el.clientWidth;
+  const handleNext = () => setCurrentSlide((prev) => (prev + 1) % totalSlides);
+  const handlePrev = () =>
+    setCurrentSlide((prev) => (prev - 1 + totalSlides) % totalSlides);
 
-    setIsStart(scrollLeft <= 0);
-    setIsEnd(scrollLeft >= maxScroll - 5);
-
-    const opacity = 1 - scrollLeft / maxScroll;
-    setOverlayOpacity(opacity);
-  };
-
-  const getCardStep = () => {
-    const card = scrollRef.current.querySelector(`.${styles.card}`);
-    if (!card) return 0;
-    const gap = 20; 
-    return card.offsetWidth + gap;
-  };
-
-  const handlePrev = () => {
-    const step = getCardStep();
-    scrollRef.current.scrollBy({ left: -step, behavior: "smooth" });
-  };
-
-  const handleNext = () => {
-    const step = getCardStep();
-    scrollRef.current.scrollBy({ left: step, behavior: "smooth" });
-  };
-
-  useEffect(() => {
-    const el = scrollRef.current;
-    el.addEventListener("scroll", handleScroll);
-    handleScroll(); 
-    return () => el.removeEventListener("scroll", handleScroll);
-  }, []);
+  const slideWidth = 600; // ширина однієї колонки
+  const gap = 40; // відстань між слайдами
 
   return (
     <section className={styles.section}>
@@ -56,49 +29,83 @@ function ProductsSection() {
       <div className={styles.container}>
         <div className={styles.leftBackground}></div>
 
-        <button
-          className={`${styles.arrow} ${styles.prev}`}
-          onClick={handlePrev}
-          disabled={isStart}
-          aria-label="Scroll Left"
-        >
+        <button className={`${styles.arrow} ${styles.prev}`} onClick={handlePrev}>
           ←
         </button>
 
-        <div
-          className={styles.right}
-          ref={scrollRef}
-          style={{ "--overlay-opacity": overlayOpacity }}
-        >
-          {coffeeData.map((product) => (
-            <div className={styles.card} key={product.id}>
-              <div className={styles.cardLeft}>
-                <img src={product.img} alt={product.name} />
+        <div className={styles.carousel}>
+          {slides.map((slide, index) => {
+            const position = (index - currentSlide + totalSlides) % totalSlides;
+
+            let style = {
+              transform: `translateX(${slideWidth * 2}px) scale(0.8)`,
+              filter: "blur(4px)",
+              opacity: 0,
+              zIndex: 1,
+            };
+
+            if (position === 0) {
+              // центральна колонка
+              style = {
+                transform: `translateX(0px) scale(1)`,
+                filter: "none",
+                opacity: 1,
+                zIndex: 5,
+              };
+            } else if (position === 1) {
+              // права колонка
+              style = {
+                transform: `translateX(${slideWidth + gap}px) scale(0.9)`,
+                filter: "blur(2px)",
+                opacity: 0.7,
+                zIndex: 3,
+              };
+            } else if (position === totalSlides - 1) {
+              // ліва колонка
+              style = {
+                transform: `translateX(-${slideWidth + gap}px) scale(0.9)`,
+                filter: "blur(2px)",
+                opacity: 0.7,
+                zIndex: 3,
+              };
+            }
+
+            return (
+              <div
+                key={index}
+                className={styles.slide}
+                style={{
+                  ...style,
+                  position: "absolute",
+                  top: 0,
+                  transition: "all 0.5s ease",
+                }}
+              >
+                {slide.map((product) => (
+                  <div key={product.id} className={styles.card}>
+                    <div className={styles.cardLeft}>
+                      <img src={product.img} alt={product.name} />
+                    </div>
+                    <div className={styles.cardRight}>
+                      <p className={styles.price}>{product.price}</p>
+                      <h3 className={styles.coffeeName}>{product.name}</h3>
+                      <p className={styles.description}>{product.desc}</p>
+                      <div className={styles.buttons}>
+                        <button className={styles.btn}>Buy Now</button>
+                        <button className={styles.btn}>Details</button>
+                      </div>
+                    </div>
+                  </div>
+                ))}
               </div>
-              <div className={styles.cardRight}>
-                <p className={styles.price}>{product.price}</p>
-                <h3 className={styles.coffeeName}>{product.name}</h3>
-                <p className={styles.description}>{product.desc}</p>
-                <div className={styles.buttons}>
-                  <button className={styles.btn}>Buy Now</button>
-                  <button className={styles.btn}>Details</button>
-                </div>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
-        <button
-          className={`${styles.arrow} ${styles.next}`}
-          onClick={handleNext}
-          disabled={isEnd}
-          aria-label="Scroll Right"
-        >
+        <button className={`${styles.arrow} ${styles.next}`} onClick={handleNext}>
           →
         </button>
       </div>
     </section>
   );
 }
-
-export default ProductsSection;

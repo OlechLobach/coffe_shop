@@ -1,8 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&family=Quicksand:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&family=Quicksand:wght@300;400;500;600;700&display=swap');
 
-html,
-body {
+html, body {
   margin: 0;
   padding: 0;
 }
@@ -16,7 +15,7 @@ body {
 }
 
 .container {
-  display:grid;
+  display: grid;
   grid-template-columns: 420px minmax(300px, 2fr) 250px;
   width: 100%;
 }
@@ -57,7 +56,7 @@ body {
   color: #fff;
   font-weight: 900;
   position: relative; 
-  z-index:1 ;
+  z-index: 1;
 }
 
 .centre img {
@@ -81,17 +80,18 @@ body {
   align-items: flex-start;
 }
 
-.cartIcon{
+.cartIconWrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.cartIcon {
   margin-top: 72px;
   margin-left: 60px;
   width: 24px;
   height: 24px;
   cursor: pointer;
-}
-.cartDefault {
-  width: 24px;
-  margin-top: 72px;     
-  margin-left: 60px;  
 }
 
 .menu {
@@ -123,6 +123,15 @@ body {
   letter-spacing: 0;
   color: #EDF0F5;     
   text-decoration: none;
+}
+
+.signupBtn, .defaultSignupBtn {
+  display: inline-block;
+  color: #fff;
+  font-weight: 900;
+  font-size: 18px;
+  text-decoration: none;
+  transition: all 0.3s ease;
 }
 
 .defaultHeader {
@@ -175,7 +184,6 @@ body {
   align-items: center;
 }
 
-
 .defaultMenuLink {
   font-family: 'Nunito', sans-serif;
   font-weight: 600;
@@ -183,11 +191,6 @@ body {
   color: #EDF0F5;
   text-decoration: none;
   transition: color 0.3s ease;
-}
-
-.defaultMenuLink:hover,
-.defaultMenuLink.active {
-  color: #C7A17A;
 }
 
 .defaultCart {
