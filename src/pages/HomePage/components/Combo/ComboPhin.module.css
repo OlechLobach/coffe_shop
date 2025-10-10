@@ -241,7 +241,6 @@
   height: auto;
 }
 
-/* ---------- 1024px ---------- */
 @media (max-width: 1024px) {
   .section {
     height: auto;
@@ -252,6 +251,7 @@
     position: static;
     transform: none;
     margin-top: 60px;
+    text-align: center;
   }
 
   .container {
@@ -260,72 +260,156 @@
 
   .sliderMobile {
     display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding: 20px;
+    padding-right: 40px;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    scroll-padding-left: 20px;
+    scroll-padding-right: 20px;
+    justify-content: center;
   }
-}
 
-/* ---------- 768px ---------- */
-@media (max-width: 768px) {
+  .sliderMobile::after {
+    content: "";
+    flex: 0 0 20px;
+  }
+
+  .sliderMobile::-webkit-scrollbar {
+    display: none;
+  }
+
   .sliderMobile .card {
-    flex: 0 0 85%;
+    flex: 0 0 80%;
+    scroll-snap-align: center;
+    box-sizing: border-box;
+    min-width: 220px;
+    height: auto;
   }
 
-  .cardImg {
+  .sliderMobile .cardImg {
     height: auto;
-    aspect-ratio: 4/3;
+    aspect-ratio: 4 / 3;
+  }
+
+  .cardRight {
+    text-align: center;
   }
 
   .buttons {
-    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    flex-direction: column;
+    margin-left: 0 !important;
+    gap: 8px;
   }
 
   .btn {
     width: 80%;
+    font-size: 14px;
+    padding: 8px 16px;
+    border-radius: 25px;
+    margin: 0 auto;
   }
 
   .subtitle {
     font-size: 18px;
   }
+
+  .title {
+    font-size: 26px;
+  }
 }
 
-/* ---------- 480px ---------- */
+@media (max-width: 768px) {
+  .sliderMobile {
+    gap: 16px;
+    padding: 10px 16px;
+  }
+
+  .sliderMobile .card {
+    flex: 0 0 85%;
+    min-width: 200px;
+  }
+
+  .sliderMobile .cardImg {
+    height: auto;
+    aspect-ratio: 4 / 3;
+  }
+
+  .cardRight {
+    padding: 15px;
+    text-align: center;
+  }
+
+  .buttons {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  .btn {
+    width: 80%;
+    padding: 8px 14px;
+    font-size: 14px;
+    border-radius: 22px;
+  }
+
+  .subtitle {
+    font-size: 16px;
+  }
+
+  .title {
+    font-size: 22px;
+  }
+}
+
 @media (max-width: 480px) {
   .sliderMobile {
-    padding: 10px;
     gap: 12px;
+    padding: 10px;
   }
 
   .sliderMobile .card {
     flex: 0 0 90%;
+    min-width: 180px;
   }
 
-  .cardImg {
+  .sliderMobile .cardImg {
     height: auto;
-    aspect-ratio: 4/3;
+    aspect-ratio: 4 / 3;
   }
 
-  .newPrice {
-    font-size: 16px;
+  .cardRight {
+    padding: 10px;
+    text-align: center;
+  }
+
+  .price {
+    font-size: 14px;
   }
 
   .coffeeName {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   .description {
-    font-size: 13px;
+    font-size: 12px;
   }
 
   .buttons {
     flex-direction: column;
     gap: 8px;
     align-items: center;
+    justify-content: center;
   }
 
   .btn {
     width: 80%;
     font-size: 13px;
-    padding: 8px 12px;
+    padding: 6px 12px;
     border-radius: 20px;
   }
 
@@ -340,5 +424,9 @@
 
   .subtitle {
     font-size: 14px;
+  }
+
+  .title {
+    font-size: 20px;
   }
 }
