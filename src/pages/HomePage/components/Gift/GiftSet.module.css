@@ -80,12 +80,23 @@
   margin: 0 0 20px;
   font-size: 14px;
   color: #444;
+  display: flex;          
+  gap: 20px;              
+  align-items: center;     
 }
 
 .meta li {
-  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;                
+  margin-bottom: 0;        
 }
 
+.meta li img {
+  width: 30px;
+  height: 30px;
+  object-fit: contain;
+}
 .buttons {
   display: flex;
   gap: 12px;
@@ -99,14 +110,17 @@
   border: none;
   cursor: pointer;
   font-weight: 600;
+  text-decoration: none;
 }
 
 .details {
+  margin-top: 10px;
   background: transparent;
   border: none;
   font-weight: 600;
   cursor: pointer;
   color: #2e3640;
+  text-decoration: none;
 }
 
 .nav {
@@ -139,3 +153,128 @@
   font-size: 18px;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
+
+@media (max-width: 992px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    padding: 30px 20px;
+    max-width: 90%;
+  }
+
+  .image img {
+    width: 240px;
+    margin-bottom: 20px;
+  }
+
+  .content {
+    text-align: center;
+    align-items: center;
+  }
+
+  .meta {
+    justify-content: center;
+  }
+
+  .buttons {
+    justify-content: center;
+  }
+
+  .nav {
+    position: static;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 20px;
+  }
+
+  .num {
+    width: 60px;
+    height: 50px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding: 60px 0;
+  }
+
+  .title {
+    font-size: 18px;
+    margin-bottom: 30px;
+  }
+
+  .container {
+    padding: 20px;
+    gap: 20px;
+    box-shadow: none;
+    background: #fff;
+    border-radius: 10px;
+  }
+
+  .image img {
+    width: 180px;
+  }
+
+  .name {
+    font-size: 16px;
+  }
+
+  .desc {
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .meta {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .meta li img {
+    width: 24px;
+    height: 24px;
+  }
+
+ .buttons {
+  display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .buy,
+  .details {
+    width: 100%;
+    font-size: 15px;
+    padding: 10px 10px;
+    border-radius: 40px; 
+    font-weight: 600;
+    text-align: center;
+    transition: all 0.3s ease;
+    display: inline-block;
+  }
+
+  .details {
+    background: transparent;
+    border: 2px solid #c7a17a;
+    color: #c7a17a;
+  }
+
+  .details:hover {
+    background: #c7a17a;
+    color: #fff;
+  }
+}
+
+  .nav {
+    margin-top: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .num {
+    width: 45px;
+    height: 40px;
+    font-size: 14px;
+  }
+

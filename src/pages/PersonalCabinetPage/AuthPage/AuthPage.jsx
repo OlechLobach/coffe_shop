@@ -64,7 +64,7 @@ export default function AuthPage() {
         {isLogin ? (
           <form className={styles.form} onSubmit={handleLoginSubmit}>
             <h2>Login to your account</h2>
-            <label>
+            <label className={styles.authFormLabel}>
               Email
               <input
                 type="email"
@@ -72,9 +72,10 @@ export default function AuthPage() {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email"
                 required
+                className={styles.authFormInput}
               />
             </label>
-            <label>
+            <label className={styles.authFormLabel}>
               Password
               <input
                 type="password"
@@ -82,6 +83,7 @@ export default function AuthPage() {
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Enter your password"
                 required
+                className={styles.authFormInput}
               />
             </label>
             <button type="submit" className={styles.submitBtn}>
@@ -91,7 +93,7 @@ export default function AuthPage() {
         ) : (
           <form className={styles.form} onSubmit={handleRegisterSubmit}>
             <h2>Create a new account</h2>
-            <label>
+            <label className={styles.authFormLabel}>
               Name
               <input
                 type="text"
@@ -99,9 +101,10 @@ export default function AuthPage() {
                 onChange={(e) => setName(e.target.value)}
                 placeholder="Enter your name"
                 required
+                className={styles.authFormInput}
               />
             </label>
-            <label>
+            <label className={styles.authFormLabel}>
               Email
               <input
                 type="email"
@@ -109,9 +112,10 @@ export default function AuthPage() {
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your email"
                 required
+                className={styles.authFormInput}
               />
             </label>
-            <label>
+            <label className={styles.authFormLabel}>
               Password
               <input
                 type="password"
@@ -119,6 +123,7 @@ export default function AuthPage() {
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Enter your password"
                 required
+                className={styles.authFormInput}
               />
             </label>
             <button type="submit" className={styles.submitBtn}>

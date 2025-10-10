@@ -2,7 +2,7 @@
   max-width: 1000px;
   margin: 0 auto;
   padding: 20px;
-  min-height: calc(100vh - 100px); 
+  min-height: calc(100vh - 100px);
   display: flex;
   flex-direction: column;
   gap: 25px;
@@ -13,6 +13,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
 }
 
 .cartHeader h2 {
@@ -38,6 +39,72 @@
   color: #415167;
   text-align: center;
   margin-top: 50px;
+}
+
+.cartActions {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+
+.clearBtn, .orderBtn {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.clearBtn {
+  background-color: #415167;
+  color: #fff;
+}
+
+.clearBtn:hover {
+  background-color: #2e3b4b;
+}
+
+.orderBtn {
+  background-color: #C7A17A;
+  color: #fff;
+}
+
+.orderBtn:hover {
+  background-color: #a8875c;
+}
+
+.filters {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.filterBtn {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 14px;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 10px;
+  background-color: #F0E7D8;
+  color: #151D28;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.filterBtn:hover {
+  background-color: #C7A17A;
+  color: #fff;
+}
+
+.activeFilter {
+  background-color: #C7A17A;
+  color: #fff;
 }
 
 .cartList {
@@ -141,42 +208,6 @@
   background-color: #2e3b4b;
 }
 
-.cartActions {
-  display: flex;
-  gap: 15px;
-  flex-wrap: wrap;
-  margin-bottom: 20px;
-}
-
-.clearBtn, .orderBtn {
-  font-family: 'Nunito', sans-serif;
-  font-weight: 700;
-  font-size: 14px;
-  padding: 10px 18px;
-  border: none;
-  border-radius: 12px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.clearBtn {
-  background-color: #415167;
-  color: #fff;
-}
-
-.clearBtn:hover {
-  background-color: #2e3b4b;
-}
-
-.orderBtn {
-  background-color: #C7A17A;
-  color: #fff;
-}
-
-.orderBtn:hover {
-  background-color: #a8875c;
-}
-
 @media (max-width: 768px) {
   .cartItem {
     flex-direction: column;
@@ -200,5 +231,9 @@
 
   .cartActions {
     flex-direction: column;
+  }
+
+  .filters {
+    justify-content: flex-start;
   }
 }

@@ -5,7 +5,7 @@ import phin4 from "../../assets/images/ColoredPhin/phin4.png";
 
 export const coloredPhinProducts = [
   {
-    id: "Red-Capsule",
+    id: 201,
     name: "Red Phin Capsule",
     color: "Red",
     price: 12.99,
@@ -14,7 +14,7 @@ export const coloredPhinProducts = [
     category: "Colored Phin"
   },
   {
-    id: "Blue-Capsule",
+    id: 202,
     name: "Blue Phin Capsule",
     color: "Blue",
     price: 12.99,
@@ -23,7 +23,7 @@ export const coloredPhinProducts = [
     category: "Colored Phin"
   },
   {
-    id: "Green-Capsule",
+    id: 203,
     name: "Green Phin Capsule",
     color: "Green",
     price: 12.99,
@@ -32,7 +32,7 @@ export const coloredPhinProducts = [
     category: "Colored Phin"
   },
   {
-    id: "Yellow-Capsule",
+    id: 204,
     name: "Yellow Phin Capsule",
     color: "Yellow",
     price: 12.99,
@@ -41,7 +41,7 @@ export const coloredPhinProducts = [
     category: "Colored Phin"
   },
   {
-    id: "Purple-Capsule",
+    id: 205,
     name: "Purple Phin Capsule",
     color: "Purple",
     price: 12.99,
@@ -50,7 +50,7 @@ export const coloredPhinProducts = [
     category: "Colored Phin"
   },
   {
-    id: "Orange-Capsule",
+    id: 206,
     name: "Orange Phin Capsule",
     color: "Orange",
     price: 12.99,
@@ -59,7 +59,7 @@ export const coloredPhinProducts = [
     category: "Colored Phin"
   },
   {
-    id: "Pink-Capsule",
+    id: 207,
     name: "Pink Phin Capsule",
     color: "Pink",
     price: 12.99,
@@ -68,7 +68,7 @@ export const coloredPhinProducts = [
     category: "Colored Phin"
   },
   {
-    id: "Cyan-Capsule",
+    id: 208,
     name: "Cyan Phin Capsule",
     color: "Cyan",
     price: 12.99,
@@ -77,7 +77,7 @@ export const coloredPhinProducts = [
     category: "Colored Phin"
   },
   {
-    id: "Black-Capsule",
+    id: 209,
     name: "Black Phin Capsule",
     color: "Black",
     price: 12.99,
@@ -86,7 +86,7 @@ export const coloredPhinProducts = [
     category: "Colored Phin"
   },
   {
-    id: "White-Capsule",
+    id: 210,
     name: "White Phin Capsule",
     color: "White",
     price: 12.99,
@@ -95,7 +95,7 @@ export const coloredPhinProducts = [
     category: "Colored Phin"
   },
   {
-    id: "Silver-Capsule",
+    id: 211,
     name: "Silver Phin Capsule",
     color: "Silver",
     price: 12.99,
@@ -104,7 +104,7 @@ export const coloredPhinProducts = [
     category: "Colored Phin"
   },
   {
-    id: "Gold-Capsule",
+    id: 212,
     name: "Gold Phin Capsule",
     color: "Gold",
     price: 12.99,
@@ -113,6 +113,3 @@ export const coloredPhinProducts = [
     category: "Colored Phin"
   }
 ];
-
-
-

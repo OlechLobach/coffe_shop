@@ -9,7 +9,7 @@ export default function ColoredPhinDetail() {
   const { addToCart } = useContext(CartContext);
   const [quantity, setQuantity] = useState(1);
 
-  const product = coloredPhinProducts.find(item => item.id === id);
+  const product = coloredPhinProducts.find(item => item.id.toString() === id);
 
   if (!product) {
     return (

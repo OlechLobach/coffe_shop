@@ -9,7 +9,7 @@ export default function PhinComboDetail() {
   const { addToCart } = useContext(CartContext);
   const [quantity, setQuantity] = useState(1);
 
-  const product = phinComboProducts.find(item => item.id === id);
+  const product = phinComboProducts.find(item => item.id.toString() === id);
 
   if (!product) {
     return (

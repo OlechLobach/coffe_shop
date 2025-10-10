@@ -1,25 +1,29 @@
 .selectWrapper {
   position: relative;
-  width: 180px;
+  width: 100%; /* 100% ширина контейнера, адаптивно */
   font-family: "Nunito", sans-serif;
+  box-sizing: border-box;
 }
 
 .selectBox {
   background: #fff;
   border: 1px solid #ddd;
   border-radius: 8px;
-  padding: 10px 14px;
+  padding: 12px 14px;
   font-size: 14px;
   color: #333;
   cursor: pointer;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  transition: border 0.2s ease;
+  transition: border 0.2s ease, box-shadow 0.2s ease;
+  box-sizing: border-box;
+  width: 100%;
 }
 
 .selectBox:hover {
   border-color: #b08968;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
 }
 
 .arrow {
@@ -40,7 +44,7 @@
   position: absolute;
   top: 110%;
   left: 0;
-  right: 0;
+  width: 100%; /* підлаштовується під selectBox */
   background: #fff;
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -51,6 +55,7 @@
   z-index: 1000;
   max-height: 200px;
   overflow-y: auto;
+  box-sizing: border-box;
 }
 
 .option {
@@ -59,6 +64,7 @@
   color: #444;
   cursor: pointer;
   transition: background 0.2s;
+  box-sizing: border-box;
 }
 
 .option:hover {
@@ -68,4 +74,12 @@
 .active {
   background: #f2e9e4;
   font-weight: bold;
+}
+
+/* ===== Адаптивність ===== */
+@media (max-width: 480px) {
+  .selectBox, .option {
+    font-size: 13px;
+    padding: 10px 12px;
+  }
 }

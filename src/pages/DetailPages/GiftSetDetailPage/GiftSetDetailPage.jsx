@@ -6,7 +6,7 @@ import styles from "./GiftSetDetailPage.module.css";
 
 export default function GiftSetDetailPage() {
   const { id } = useParams();
-  const product = giftSetProducts.find(p => p.id === id);
+  const product = giftSetProducts.find(p => p.id.toString() === id);
   const [quantity, setQuantity] = useState(1);
   const { addToCart } = useContext(CartContext);
 

@@ -24,18 +24,22 @@ export default function ColoredPhinPage() {
         <p>Explore our premium Vietnamese coffee filters.</p>
       </div>
 
-      <div className={styles.phinFilters}>
-        <CustomSelect
-          options={["Default", "Price: Low to High", "Price: High to Low", "Rating: High to Low"]}
-          value={sortOption}
-          onChange={setSortOption}
-        />
+      <div className={styles.filtersRow}>
         <input
           type="text"
           placeholder="Search filters..."
           value={searchTerm}
           onChange={e => setSearchTerm(e.target.value)}
+          className={styles.searchInput}
         />
+
+        <div className={styles.customSelectWrapper}>
+          <CustomSelect
+            options={["Default", "Price: Low to High", "Price: High to Low", "Rating: High to Low"]}
+            value={sortOption}
+            onChange={setSortOption}
+          />
+        </div>
       </div>
 
       {visibleProducts.length > 0 ? (

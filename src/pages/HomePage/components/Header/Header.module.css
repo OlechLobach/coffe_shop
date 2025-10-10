@@ -1,205 +1,242 @@
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;600;700;800;900&family=Quicksand:wght@300;400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Nunito:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;0,1000;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900;1,1000&family=Quicksand:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;900&family=Montserrat:wght@400;700;900&display=swap');
 
 html, body {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  overflow-x: hidden; /* 🧩 головне виправлення */
+  width: 100%;
 }
 
+/* ===== HEADER ===== */
 .header {
-  height: 800px;
-  max-width: 1530px;
-  background: #f5f7fa;
-  position: relative;
-  overflow: hidden;
+  width: 100%;
+  background-color: #415167;
+  color: #EDF0F5;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  overflow: hidden; /* 🧩 прибирає можливі зміщення */
 }
 
 .container {
-  display: grid;
-  grid-template-columns: 420px minmax(300px, 2fr) 250px;
   width: 100%;
-}
-
-.left {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
   display: flex;
-  flex-direction: column;
-  justify-content: space-between; 
-}
-
-.logoLink {
-  display: inline-block; 
-  margin-top: 72px;     
-  margin-left: 180px;   
-  cursor: pointer;
-}
-
-.logo {
-  width: 124px;
-  height: 40px;
-  display: block; 
-  opacity: 1;
-}
-
-.slogan {
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 900;
-  font-size: 54px;
-  line-height: 70px;
-  letter-spacing: 0;
-  margin-left: 180px;
-  position: static; 
-  margin-bottom: 160px;  
-}
-
-.bold {
-  background-color: #C7A17A;
-  color: #fff;
-  font-weight: 900;
-  position: relative; 
-  z-index: 1;
-}
-
-.centre img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  display: block;
-}
-
-.right {
-  background-color: #415167; 
-  display: flex;
-  position: relative;
-  flex-direction: column;
-  height: 100%;
-}
-
-.navBar {
-  display: flex;
-  flex-direction: column; 
-  align-items: flex-start;
-}
-
-.cartIconWrapper {
-  display: flex;
+  justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
-}
-
-.cartIcon {
-  margin-top: 72px;
-  margin-left: 60px;
-  width: 24px;
-  height: 24px;
-  cursor: pointer;
-}
-
-.menu {
-  list-style: none;  
-  margin-top: 150px;
-  margin-left: 60px;
-  padding: 0;
-  display: flex;
-  flex-direction: column; 
-  gap: 40px;               
-}
-
-.menuBtn {
-  font-family: 'Nunito', sans-serif;
-  font-weight: 300;
-  font-size: 16px;
-  line-height: 24px;
-  letter-spacing: 0;
-  color: #EDF0F5;     
-  text-decoration: none;
-  transition: color 0.3s ease;
-}
-
-.activeMenuBtn {
-  font-family: 'Nunito', sans-serif;
-  font-weight: 700;
-  font-size: 16px;
-  line-height: 100%;
-  letter-spacing: 0;
-  color: #EDF0F5;     
-  text-decoration: none;
-}
-
-.signupBtn, .defaultSignupBtn {
-  display: inline-block;
-  color: #fff;
-  font-weight: 900;
-  font-size: 18px;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-.defaultHeader {
-  width: 100%;
-  height: 80px;
-  background-color: #415167;
-  display: flex;
-  align-items: center; 
-  justify-content: center; 
-  position: relative;
-}
-
-.defaultContainer {
-  display: flex;
-  align-items: center; 
-  justify-content: space-between; 
-  width: 100%;
-  max-width: 1530px;
-  padding: 0 40px;
   box-sizing: border-box;
 }
 
-.defaultLogoLink {
+.logoLink {
   display: flex;
-  align-items: center; 
-}
-
-.defaultLogo {
-  width: 124px;
-  height: 40px;
-  display: block;
-}
-
-.defaultLink {
-  flex: 1; 
-  display: flex;
-  justify-content: center;
-}
-
-.defaultNavBar {
-  display: flex;
-}
-
-.defaultMenu {
-  display: flex;
-  gap: 40px; 
-  list-style: none;
-  margin: 0;
-  padding: 0;
   align-items: center;
 }
 
-.defaultMenuLink {
+.logo {
+  width: 120px;
+  height: 40px;
+}
+
+.nav {
+  display: flex;
+}
+
+.menu {
+  list-style: none;
+  display: flex;
+  gap: 32px;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+
+.link {
   font-family: 'Nunito', sans-serif;
-  font-weight: 600;
-  font-size: 16px;
   color: #EDF0F5;
   text-decoration: none;
+  font-size: 16px;
   transition: color 0.3s ease;
 }
 
-.defaultCart {
+.link:hover {
+  color: #c7a17a;
+}
+
+.active {
+  font-weight: 700;
+  color: #c7a17a;
+}
+
+.authBtn {
+  background: #c7a17a;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.authBtn:hover {
+  background: #b08c67;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.cartDesktop {
   display: flex;
   align-items: center;
 }
 
-.defaultCartIcon {
+.cartIcon {
   width: 24px;
   height: 24px;
   cursor: pointer;
+}
+
+.burgerBtn {
+  display: none;
+  font-size: 28px;
+  color: #EDF0F5;
+  background: none;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  z-index: 2001; /* вище за меню */
+}
+
+/* ===== HERO SECTION ===== */
+.hero {
+  width: 100vw; /* 🧩 замість 100% — щоб не виходило за межі */
+  height: 600px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  margin-top: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.heroOverlay {
+  background: rgba(0, 0, 0, 0.4);
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.heroTitle {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 54px;
+  font-weight: 900;
+  color: #fff;
+  text-align: center;
+  padding: 0 16px;
+  box-sizing: border-box;
+}
+
+.heroBold {
+  color: #C7A17A;
+}
+.mobileCart {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .burgerBtn {
+    display: block;
+  }
+
+  .nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    background-color: #415167;
+    width: 70%;
+    height: 100vh;
+    flex-direction: column;
+    justify-content: center;
+    transition: right 0.3s ease;
+    z-index: 2000;
+    overflow-y: auto;
+  }
+
+  .nav.open {
+    right: 0;
+  }
+
+  .menu {
+    flex-direction: column;
+    gap: 24px;
+    align-items: center;
+  }
+
+  .authBtn {
+    padding: 10px 20px;
+    font-size: 18px;
+  }
+
+  .cartDesktop {
+    display: none;
+  }
+
+  .mobileCart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .cartMobileLink {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: #fff;
+    font-family: 'Nunito', sans-serif;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s ease;
+  }
+
+  .cartMobileLink:hover {
+    color: #c7a17a;
+  }
+
+  .cartIconMobile {
+    width: 24px;
+    height: 24px;
+  }
+
+  .hero {
+    height: 400px;
+  }
+
+  .heroTitle {
+    font-size: 32px;
+    padding: 0 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    height: 320px;
+  }
+
+  .heroTitle {
+    font-size: 26px;
+  }
 }

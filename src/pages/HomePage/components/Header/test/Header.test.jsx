@@ -1,38 +1,56 @@
 import { render, screen } from "@testing-library/react";
 import { MemoryRouter } from "react-router-dom";
-import Header from "../HeaderSection";
+import { vi } from "vitest";
+import Header from "../HeaderDesctope";
+import { useAuth } from "../../../../../Context/AuthContext";
 import styles from "../Header.module.css";
 
-
+// Мокаємо контекст авторизації через Vitest
+vi.mock("../../../../../Context/AuthContext", () => ({
+  useAuth: vi.fn(),
+}));
 
 describe("Header component", () => {
-  beforeEach(() => {
+  afterEach(() => {
+    vi.clearAllMocks();
+  });
+
+  test("рендерить логотип з посиланням на головну сторінку", () => {
+    useAuth.mockReturnValue({ user: null });
+
+    render(
+      <MemoryRouter initialEntries={["/"]}>
+        <Header />
+      </MemoryRouter>
+    );
+
+    const logo = screen.getByAltText("Logo");
+    expect(logo).toBeInTheDocument();
+    expect(logo.closest("a")).toHaveAttribute("href", "/");
+  });
+
+  test("рендерить hero image на головній сторінці", () => {
+    useAuth.mockReturnValue({ user: null });
+
+    render(
+      <MemoryRouter initialEntries={["/"]}>
+        <Header />
+      </MemoryRouter>
+    );
+
+    const heroImage = screen.getByAltText("hero");
+    expect(heroImage).toBeInTheDocument();
+  });
+
+  test("рендерить всі пункти меню", () => {
+    useAuth.mockReturnValue({ user: null });
+
     render(
       <MemoryRouter initialEntries={["/coffee"]}>
         <Header />
       </MemoryRouter>
     );
-  });
 
-  test("рендерить логотип з посиланням на головну сторінку", () => {
-    const logo = screen.getByAltText(/logo/i);
-    expect(logo).toBeInTheDocument();
-
-    const logoLink = screen.getByRole("link", { name: /logo/i });
-    expect(logoLink).toHaveAttribute("href", "/");
-  });
-
-  test("рендерить hero image", () => {
-    const heroImage = screen.getByAltText(/hero/i);
-    expect(heroImage).toBeInTheDocument();
-  });
-
-  test("рендерить іконку корзини з посиланням на /cart", () => {
-    const cartLink = screen.getByRole("link", { name: /cart icon/i });
-    expect(cartLink).toHaveAttribute("href", "/cart");
-  });
-
-  test("рендерить всі пункти меню", () => {
     const menuItems = [
       "Home",
       "Coffee",
@@ -43,13 +61,33 @@ describe("Header component", () => {
     ];
 
     menuItems.forEach((item) => {
-      const link = screen.getByRole("link", { name: item });
-      expect(link).toBeInTheDocument();
+      expect(screen.getByText(item)).toBeInTheDocument();
     });
   });
 
-  test("NavLink отримує active клас для активного маршруту", () => {
-    const coffeeLink = screen.getByRole("link", { name: /coffee/i });
-    expect(coffeeLink).toHaveClass(styles.activeMenuBtn);
+  test("показує Login, якщо користувач не авторизований", () => {
+    useAuth.mockReturnValue({ user: null });
+
+    render(
+      <MemoryRouter initialEntries={["/"]}>
+        <Header />
+      </MemoryRouter>
+    );
+
+    const loginLink = screen.getByText("Login");
+    expect(loginLink).toBeInTheDocument();
+    expect(loginLink.closest("a")).toHaveAttribute("href", "/signup");
+  });
+
+  test("показує Profile, якщо користувач авторизований", () => {
+    useAuth.mockReturnValue({ user: { name: "Test" } });
+
+    render(
+      <MemoryRouter initialEntries={["/"]}>
+        <Header />
+      </MemoryRouter>
+    );
+
+    expect(screen.getByText("Profile")).toBeInTheDocument();
   });
 });

@@ -31,30 +31,38 @@ export default function CoffeePage() {
       </div>
 
       <div className={styles.phinFilters}>
-        <input
-          type="text"
-          placeholder="Search coffee..."
-          value={searchTerm}
-          onChange={e => setSearchTerm(e.target.value)}
-        />
+        <div className={styles.filterItem}>
+          <input
+            type="text"
+            placeholder="Search coffee..."
+            value={searchTerm}
+            onChange={e => setSearchTerm(e.target.value)}
+          />
+        </div>
 
-        <CustomSelect
-          options={["All", "Arabica", "Robusta", "Blend"]}
-          value={filters.type}
-          onChange={value => setFilters({ ...filters, type: value })}
-        />
+        <div className={styles.filterItem}>
+          <CustomSelect
+            options={["All", "Arabica", "Robusta", "Blend"]}
+            value={filters.type}
+            onChange={value => setFilters({ ...filters, type: value })}
+          />
+        </div>
 
-        <CustomSelect
-          options={["All", "Light", "Medium", "Medium-Dark", "Dark"]}
-          value={filters.roast}
-          onChange={value => setFilters({ ...filters, roast: value })}
-        />
+        <div className={styles.filterItem}>
+          <CustomSelect
+            options={["All", "Light", "Medium", "Medium-Dark", "Dark"]}
+            value={filters.roast}
+            onChange={value => setFilters({ ...filters, roast: value })}
+          />
+        </div>
 
-        <CustomSelect
-          options={["Default", "Price: Low to High", "Price: High to Low", "Rating: High to Low"]}
-          value={sortOption}
-          onChange={setSortOption}
-        />
+        <div className={styles.filterItem}>
+          <CustomSelect
+            options={["Default", "Price: Low to High", "Price: High to Low", "Rating: High to Low"]}
+            value={sortOption}
+            onChange={setSortOption}
+          />
+        </div>
       </div>
 
       {visibleProducts.length > 0 ? (

@@ -1,27 +1,32 @@
 import React, { useState, useEffect } from "react";
 import { supabase } from "../../../db/supabaseClient";
 import { useNavigate } from "react-router-dom";
+import { FaUser, FaBox, FaCog, FaSignOutAlt } from "react-icons/fa";
 import styles from "./ProfilePage.module.css";
 
+import ProfileSection from "./ProfileSection";
+import OrdersSection from "./OrdersSection";
+import SettingsSection from "./SettingsSection";
+import ProfileModal from "./Modals/ProfileModal";
+import OrderDetailsModal from "./Modals/OrderDetailsModal";
+
 export default function ProfilePage() {
+  const [activeSection, setActiveSection] = useState("profile");
   const [profile, setProfile] = useState(null);
+  const [orders, setOrders] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [fullName, setFullName] = useState("");
-  const [phone, setPhone] = useState("");
-  const [avatarFile, setAvatarFile] = useState(null);
-  const [avatarUrl, setAvatarUrl] = useState("");
-  const [error, setError] = useState("");
+  const [isProfileModalOpen, setIsProfileModalOpen] = useState(false);
+  const [isOrderModalOpen, setIsOrderModalOpen] = useState(false);
+  const [selectedOrder, setSelectedOrder] = useState(null);
   const navigate = useNavigate();
 
-  const fetchProfile = async () => {
-    const {
-      data: { user },
-    } = await supabase.auth.getUser();
+  useEffect(() => {
+    fetchProfile();
+  }, []);
 
-    if (!user) {
-      navigate("/signup");
-      return;
-    }
+  const fetchProfile = async () => {
+    const { data: { user } } = await supabase.auth.getUser();
+    if (!user) return navigate("/signup");
 
     const { data, error } = await supabase
       .from("profiles")
@@ -29,50 +34,22 @@ export default function ProfilePage() {
       .eq("id", user.id)
       .single();
 
-    if (error) setError(error.message);
+    if (error) console.error(error);
     else {
       setProfile(data);
-      setFullName(data.full_name || "");
-      setPhone(data.phone || "");
-      setAvatarUrl(data.avatar_url || "");
+      fetchOrders(user.id);
     }
     setLoading(false);
   };
 
-  useEffect(() => {
-    fetchProfile();
-  }, []);
-
-  const handleUpdate = async () => {
-    if (!profile) return;
-
-    let avatar_path = avatarUrl;
-
-    if (avatarFile) {
-      const fileExt = avatarFile.name.split(".").pop();
-      const fileName = `${profile.id}.${fileExt}`;
-      const filePath = `${fileName}`;
-
-      const { error: uploadError } = await supabase.storage
-        .from("avatars")
-        .upload(filePath, avatarFile, { upsert: true });
-
-      if (uploadError) {
-        setError(uploadError.message);
-        return;
-      }
-
-      const { data } = supabase.storage.from("avatars").getPublicUrl(filePath);
-      avatar_path = data.publicUrl;
-    }
-
-    const { error: updateError } = await supabase
-      .from("profiles")
-      .update({ full_name: fullName, phone, avatar_url: avatar_path })
-      .eq("id", profile.id);
-
-    if (updateError) setError(updateError.message);
-    else alert("Profile updated!");
+  const fetchOrders = async (userId) => {
+    const { data, error } = await supabase
+      .from("orders")
+      .select("*")
+      .eq("user_id", userId)
+      .order("created_at", { ascending: false });
+    if (error) console.error(error);
+    else setOrders(data || []);
   };
 
   const handleLogout = async () => {
@@ -80,48 +57,72 @@ export default function ProfilePage() {
     navigate("/signup");
   };
 
-  if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error}</p>;
+  if (loading) return <p className={styles.loading}>Loading...</p>;
 
   return (
-    <div className={styles.profilePage}>
-      <h2>Personal Cabinet</h2>
+    <div className={styles.dashboard}>
+      <header className={styles.header}>
+        <h1>Revo Coffee Dashboard</h1>
+        <button onClick={handleLogout} className={styles.logoutBtn}>
+          <FaSignOutAlt /> Logout
+        </button>
+      </header>
 
-      <div className={styles.avatarContainer}>
-        {avatarUrl ? (
-          <img src={avatarUrl} alt="Avatar" className={styles.avatar} />
-        ) : (
-          <div className={styles.noAvatar}>No Avatar</div>
+      <nav className={styles.navbar}>
+        <button
+          className={activeSection === "profile" ? styles.active : ""}
+          onClick={() => setActiveSection("profile")}
+        >
+          <FaUser /> Profile
+        </button>
+        <button
+          className={activeSection === "orders" ? styles.active : ""}
+          onClick={() => setActiveSection("orders")}
+        >
+          <FaBox /> Orders
+        </button>
+        <button
+          className={activeSection === "settings" ? styles.active : ""}
+          onClick={() => setActiveSection("settings")}
+        >
+          <FaCog /> Settings
+        </button>
+      </nav>
+
+      <main className={styles.content}>
+        {activeSection === "profile" && (
+          <ProfileSection
+            profile={profile}
+            orders={orders}
+            onEdit={() => setIsProfileModalOpen(true)}
+          />
         )}
-        <input
-          type="file"
-          accept="image/*"
-          onChange={(e) => setAvatarFile(e.target.files[0])}
-        />
-      </div>
+        {activeSection === "orders" && (
+          <OrdersSection
+            orders={orders}
+            onSelectOrder={(order) => {
+              setSelectedOrder(order);
+              setIsOrderModalOpen(true);
+            }}
+          />
+        )}
+        {activeSection === "settings" && <SettingsSection />}
+      </main>
 
-      <label>
-        Full Name
-        <input
-          type="text"
-          value={fullName}
-          onChange={(e) => setFullName(e.target.value)}
+      {isProfileModalOpen && (
+        <ProfileModal
+          profile={profile}
+          onClose={() => setIsProfileModalOpen(false)}
+          onUpdated={fetchProfile}
         />
-      </label>
+      )}
 
-      <label>
-        Phone (optional)
-        <input
-          type="text"
-          value={phone}
-          onChange={(e) => setPhone(e.target.value)}
+      {isOrderModalOpen && selectedOrder && (
+        <OrderDetailsModal
+          order={selectedOrder}
+          onClose={() => setIsOrderModalOpen(false)}
         />
-      </label>
-
-      <button onClick={handleUpdate}>Update Profile</button>
-      <button onClick={handleLogout} style={{ backgroundColor: "red", marginTop: "10px" }}>
-        Log Out
-      </button>
+      )}
     </div>
   );
 }
