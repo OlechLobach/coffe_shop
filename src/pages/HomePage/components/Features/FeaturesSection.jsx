@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import styles from "./features.module.css"
+import styles from "./Features.module.css"
 import icon1 from "../../../../assets/images/HomePage/Feature/icon1.png"
 import icon2 from "../../../../assets/images/HomePage/Feature/icon2.png"
 import icon3 from "../../../../assets/images/HomePage/Feature/icon3.png"
