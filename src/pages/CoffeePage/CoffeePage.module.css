@@ -203,15 +203,38 @@
 }
 
 @media (max-width: 600px) {
-  .phinGrid {
-    grid-template-columns: 1fr;
-  }
   .phinFilters {
-    flex-direction: column;
-    gap: 12px;
-    align-items: stretch;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
   }
+
   .filterItem {
-    max-width: 100%;
+    flex: 1 1 45%;
+    max-width: 45%;
+    min-width: 140px;
+  }
+
+  .filterItem input {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+
+  .customSelectWrapper select {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+
+  @media (max-width: 400px) {
+    .phinFilters {
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .filterItem {
+      max-width: 90%;
+    }
   }
 }

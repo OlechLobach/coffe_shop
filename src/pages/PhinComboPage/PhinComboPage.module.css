@@ -187,7 +187,6 @@
   box-shadow: 0 4px 10px rgba(0,0,0,0.15);
 }
 
-/* Адаптив */
 @media (max-width: 1024px) {
   .comboGrid {
     grid-template-columns: repeat(2, 1fr);

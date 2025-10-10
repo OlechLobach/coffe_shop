@@ -1,6 +1,6 @@
 .selectWrapper {
   position: relative;
-  width: 100%; /* 100% ширина контейнера, адаптивно */
+  width: 100%; 
   font-family: "Nunito", sans-serif;
   box-sizing: border-box;
 }
@@ -44,7 +44,7 @@
   position: absolute;
   top: 110%;
   left: 0;
-  width: 100%; /* підлаштовується під selectBox */
+  width: 100%; 
   background: #fff;
   border: 1px solid #ddd;
   border-radius: 8px;
@@ -76,7 +76,6 @@
   font-weight: bold;
 }
 
-/* ===== Адаптивність ===== */
 @media (max-width: 480px) {
   .selectBox, .option {
     font-size: 13px;

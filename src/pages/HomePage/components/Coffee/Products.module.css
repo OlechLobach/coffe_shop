@@ -259,7 +259,7 @@
 
 @media (max-width: 480px) {
   .sliderMobile .card {
-    min-width: 200px; /* ширше для свайпу, але компактніше */
+    min-width: 200px;
   }
 
   .card {
@@ -270,7 +270,7 @@
 
   .cardLeft {
     width: 100%;
-    height: 150px; /* зменшена висота картинки */
+    height: 150px; 
   }
 
   .cardLeft img {
@@ -280,7 +280,7 @@
   }
 
   .cardRight {
-    padding: 10px; /* компактніший padding */
+    padding: 10px; 
     text-align: center;
   }
 
@@ -354,7 +354,7 @@
   }
 
   .arrow {
-    display: none; /* ховаємо стрілки на маленьких екранах */
+    display: none; 
   }
 
   .leftBackground {

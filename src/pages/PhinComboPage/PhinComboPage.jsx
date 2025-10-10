@@ -24,7 +24,6 @@ export default function PhinComboPage() {
         <p>Discover our curated Vietnamese coffee combo sets.</p>
       </div>
 
-      {/* Фільтри та пошук в один ряд */}
       <div className={styles.filtersRow}>
         <input
           type="text"

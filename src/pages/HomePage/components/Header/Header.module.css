@@ -4,11 +4,10 @@ html, body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  overflow-x: hidden; /* 🧩 головне виправлення */
+  overflow-x: hidden; 
   width: 100%;
 }
 
-/* ===== HEADER ===== */
 .header {
   width: 100%;
   background-color: #415167;
@@ -16,11 +15,11 @@ html, body {
   height: 80px;
   display: flex;
   align-items: center;
-  position: fixed;
+  position: relative;
   top: 0;
   left: 0;
   z-index: 1000;
-  overflow: hidden; /* 🧩 прибирає можливі зміщення */
+  overflow: hidden; 
 }
 
 .container {
@@ -113,18 +112,16 @@ html, body {
   border: none;
   cursor: pointer;
   position: relative;
-  z-index: 2001; /* вище за меню */
+  z-index: 2001; 
 }
 
-/* ===== HERO SECTION ===== */
 .hero {
-  width: 100vw; /* 🧩 замість 100% — щоб не виходило за межі */
+  width: 100vw; 
   height: 600px;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   position: relative;
-  margin-top: 80px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -166,14 +163,18 @@ html, body {
     position: fixed;
     top: 0;
     right: -100%;
-    background-color: #415167;
-    width: 70%;
+    background-color: rgba(65, 81, 103, 0.98);
+    backdrop-filter: blur(6px);
+    width: 280px;
     height: 100vh;
+    display: flex;
     flex-direction: column;
-    justify-content: center;
-    transition: right 0.3s ease;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 100px;
+    transition: right 0.35s ease-in-out;
     z-index: 2000;
-    overflow-y: auto;
+    box-shadow: -4px 0 12px rgba(0, 0, 0, 0.3);
   }
 
   .nav.open {
@@ -182,23 +183,41 @@ html, body {
 
   .menu {
     flex-direction: column;
-    gap: 24px;
+    gap: 20px;
+    width: 100%;
     align-items: center;
   }
 
-  .authBtn {
-    padding: 10px 20px;
+  .link {
     font-size: 18px;
+    color: #edf0f5;
+    font-weight: 500;
+    transition: color 0.3s ease;
   }
 
-  .cartDesktop {
-    display: none;
+  .link:hover {
+    color: #c7a17a;
+  }
+
+  .authBtn {
+    margin-top: 24px;
+    background: #c7a17a;
+    color: #fff;
+    padding: 10px 28px;
+    border-radius: 25px;
+    font-size: 16px;
+    transition: background 0.3s ease;
+  }
+
+  .authBtn:hover {
+    background: #b08c67;
   }
 
   .mobileCart {
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-top: 30px;
   }
 
   .cartMobileLink {
@@ -208,7 +227,7 @@ html, body {
     color: #fff;
     font-family: 'Nunito', sans-serif;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 17px;
     transition: color 0.3s ease;
   }
 
@@ -217,8 +236,11 @@ html, body {
   }
 
   .cartIconMobile {
-    width: 24px;
-    height: 24px;
+    width: 22px;
+    height: 22px;
+  }
+  .cartDesktop{
+    display: none;
   }
 
   .hero {
@@ -232,11 +254,28 @@ html, body {
 }
 
 @media (max-width: 600px) {
+  .nav {
+    width: 240px;
+    padding-top: 80px;
+  }
+
+  .link {
+    font-size: 16px;
+  }
+
+  .authBtn {
+    font-size: 15px;
+    padding: 8px 24px;
+  }
+
   .hero {
     height: 320px;
   }
 
   .heroTitle {
     font-size: 26px;
+  }
+    .cartDesktop{
+    display: none;
   }
 }

@@ -11,7 +11,6 @@ export default function ContactPage() {
     if (state.succeeded) {
       setShowSuccess(true);
 
-      // Очищення форми
       formRef.current.reset();
 
       const timer = setTimeout(() => {
@@ -44,7 +43,6 @@ export default function ContactPage() {
             <textarea name="message" placeholder="Your Message" required />
             <ValidationError prefix="Message" field="message" errors={state.errors} />
 
-            {/* Google reCAPTCHA */}
             <div className={styles.captchaWrapper}>
               <div className="g-recaptcha" data-sitekey="6Le7RtsrAAAAAI_I6B_fn3utCSMMqdhcNng_bD5K"></div>
             </div>
@@ -71,7 +69,6 @@ export default function ContactPage() {
         </div>
       </div>
 
-      {/* Скрипт Google reCAPTCHA */}
       <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     </section>
   );

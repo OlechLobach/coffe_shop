@@ -24,15 +24,12 @@ function Header() {
 
   return (
     <>
-      {/* ===== HEADER ===== */}
       <header className={styles.header}>
         <div className={styles.container}>
-          {/* LOGO */}
           <NavLink to="/" className={styles.logoLink}>
             <img src={logo} alt="Logo" className={styles.logo} />
           </NavLink>
 
-          {/* NAVIGATION */}
           <nav className={`${styles.nav} ${isMenuOpen ? styles.open : ""}`}>
             <ul className={styles.menu}>
               {menuItems.map((item) => (
@@ -49,7 +46,6 @@ function Header() {
                 </li>
               ))}
 
-              {/* Auth button */}
               <li>
                 <NavLink
                   to={user ? "/profile" : "/signup"}
@@ -60,25 +56,25 @@ function Header() {
                 </NavLink>
               </li>
 
-              {/* Cart inside burger (mobile) */}
-              <li className={styles.mobileCart}>
-                <NavLink
-                  to="/cart"
-                  onClick={() => setIsMenuOpen(false)}
-                  className={styles.cartMobileLink}
-                >
-                  <img
-                    src={cartIcon}
-                    alt="cart"
-                    className={styles.cartIconMobile}
-                  />
-                  <span>Cart</span>
-                </NavLink>
-              </li>
+              {isMenuOpen && (
+                <li className={styles.mobileCart}>
+                  <NavLink
+                    to="/cart"
+                    onClick={() => setIsMenuOpen(false)}
+                    className={styles.cartMobileLink}
+                  >
+                    <img
+                      src={cartIcon}
+                      alt="cart"
+                      className={styles.cartIconMobile}
+                    />
+                    <span>Cart</span>
+                  </NavLink>
+                </li>
+              )}
             </ul>
           </nav>
 
-          {/* RIGHT SIDE (for desktop) */}
           <div className={styles.right}>
             <NavLink to="/cart" className={styles.cartDesktop}>
               <img src={cartIcon} alt="cart" className={styles.cartIcon} />
@@ -96,7 +92,6 @@ function Header() {
         </div>
       </header>
 
-      {/* ===== HERO SECTION (only on Home Page) ===== */}
       {location.pathname === "/" && (
         <section
           className={styles.hero}

@@ -29,7 +29,7 @@
   padding: 40px;
   max-width: 1000px;
   margin: 0 auto;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
 }
 
 .image {
@@ -43,9 +43,8 @@
   height: auto;
   object-fit: contain;
   border-radius: 8px;
-  background: transparent; 
+  background: transparent;
 }
-
 
 .content {
   text-align: left;
@@ -80,16 +79,16 @@
   margin: 0 0 20px;
   font-size: 14px;
   color: #444;
-  display: flex;          
-  gap: 20px;              
-  align-items: center;     
+  display: flex;
+  gap: 20px;
+  align-items: center;
 }
 
 .meta li {
   display: flex;
   align-items: center;
-  gap: 6px;                
-  margin-bottom: 0;        
+  gap: 6px;
+  margin-bottom: 0;
 }
 
 .meta li img {
@@ -97,6 +96,7 @@
   height: 30px;
   object-fit: contain;
 }
+
 .buttons {
   display: flex;
   gap: 12px;
@@ -136,7 +136,7 @@
 .num {
   width: 88px;
   height: 140px;
-  background: #edf0f5; 
+  background: #edf0f5;
   color: #7a869a;
   font-size: 16px;
   font-weight: 600;
@@ -148,11 +148,12 @@
 }
 
 .active {
-  background: #fff; 
-  color: #151d28;  
+  background: #fff;
+  color: #151d28;
   font-size: 18px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
+
 
 @media (max-width: 992px) {
   .container {

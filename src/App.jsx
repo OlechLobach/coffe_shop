@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { CartProvider } from "./Context/CartContext";
 import { AuthProvider } from "./Context/AuthContext";
 import "./App.css";
-import Header from "./pages/HomePage/components/Header/HeaderDesctope.jsx";
+import Header from "./pages/HomePage/components/Header/Header.jsx";
 import Footer from "./pages/HomePage/components/Footer/FooterSection";
 import Home from "./pages/HomePage";
 import CoffeePage from "./pages/CoffeePage/CoffeePage";

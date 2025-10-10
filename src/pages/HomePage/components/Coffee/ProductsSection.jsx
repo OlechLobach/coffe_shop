@@ -85,7 +85,7 @@ export default function ProductsCarousel() {
       ) : (
         <div className={styles.containerPC}>
           <div className={styles.leftBackground}></div>
-          <button className={`${styles.arrow} ${styles.prev}`} onClick={handlePrev}>←</button>
+          <button data-testid="prev-button" className={`${styles.arrow} ${styles.prev}`} onClick={handlePrev}>←</button>
           <div className={styles.carousel}>
             {slides.map((slide, index) => {
               const position = (index - currentSlide + totalSlides) % totalSlides;
@@ -116,7 +116,7 @@ export default function ProductsCarousel() {
               );
             })}
           </div>
-          <button className={`${styles.arrow} ${styles.next}`} onClick={handleNext}>→</button>
+          <button data-testid="next-button" className={`${styles.arrow} ${styles.next}`} onClick={handleNext}>→</button>
         </div>
       )}
     </section>

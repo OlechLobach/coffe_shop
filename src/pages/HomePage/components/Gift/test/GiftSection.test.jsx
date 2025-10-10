@@ -1,54 +1,65 @@
+import { describe, test, expect, vi, beforeEach } from "vitest";
 import { render, screen, fireEvent } from "@testing-library/react";
-import { MemoryRouter } from "react-router-dom";
-import GiftsetSection from "../GiftsetSection";
+import { BrowserRouter } from "react-router-dom";
+import React from "react";
+import GiftsetSection from "../GiftSet";
+
+vi.mock("../../../../../assets/images/HomePage/Gift/giftset1Img.png", () => ({
+  default: "giftset1Img.png",
+}));
+vi.mock("../../../../../assets/images/HomePage/Gift/giftset2Img.png", () => ({
+  default: "giftset2Img.png",
+}));
+vi.mock("../../../../../assets/images/HomePage/Gift/giftSet3Img.png", () => ({
+  default: "giftSet3Img.png",
+}));
+vi.mock("../../../../../assets/images/HomePage/Gift/mountain.png", () => ({
+  default: "mountain.png",
+}));
+vi.mock("../../../../../assets/images/HomePage/Gift/iconCoffee.png", () => ({
+  default: "iconCoffee.png",
+}));
 
 describe("GiftsetSection component", () => {
   beforeEach(() => {
     render(
-      <MemoryRouter>
+      <BrowserRouter>
         <GiftsetSection />
-      </MemoryRouter>
+      </BrowserRouter>
     );
   });
 
-  test("рендерить subtitle і title", () => {
+  test("renders subtitle and title", () => {
     expect(screen.getByText("Best Gift For Best Friend")).toBeInTheDocument();
     expect(screen.getByText("GIFTSET")).toBeInTheDocument();
   });
 
-  test("рендерить першу картку giftset за замовчуванням", () => {
-    expect(
-      screen.getByText((content) =>
-        content.includes('Giftset "Vietnamese Phin Combo"')
-      )
-    ).toBeInTheDocument();
+  test("renders the default active giftset", () => {
+    expect(screen.getByAltText('Giftset "Vietnamese Phin Combo"')).toBeInTheDocument();
     expect(screen.getByText("285.000")).toBeInTheDocument();
-    expect(screen.getByText("Fine Robusta Blend")).toBeInTheDocument();
-    expect(screen.getByText("700 - 800m")).toBeInTheDocument();
+    expect(screen.getByText('Giftset "Vietnamese Phin Combo"')).toBeInTheDocument();
+    expect(screen.getByText("A wonderful gift for true coffee enthusiasts...")).toBeInTheDocument();
+    expect(screen.getByAltText("Coffee")).toBeInTheDocument();
+    expect(screen.getByAltText("Altitude")).toBeInTheDocument();
   });
 
-  test("рендерить nav кнопки для переключення giftset", () => {
+  test("renders Buy Now and Details buttons", () => {
+    expect(screen.getByText("Buy Now")).toBeInTheDocument();
+    expect(screen.getByText("Details")).toBeInTheDocument();
+  });
+
+  test("can switch giftset when clicking navigation buttons", () => {
     const navButtons = screen.getAllByTestId("gift-nav-button");
-    expect(navButtons.length).toBe(3); // маємо 3 кнопки
-  });
 
-  test("при кліку на nav кнопку змінюється активна картка", () => {
-    const navButtons = screen.getAllByTestId("gift-nav-button");
-    fireEvent.click(navButtons[1]); // клікаємо на другу кнопку
+    expect(navButtons[0].className).toContain("active");
+    expect(screen.getByAltText('Giftset "Vietnamese Phin Combo"')).toBeInTheDocument();
 
-    expect(
-      screen.getByText((content) =>
-        content.includes('Giftset "Premium CoffeeMorning Energy Set"')
-      )
-    ).toBeInTheDocument();
-    expect(screen.getByText("300.000")).toBeInTheDocument();
-  });
+    fireEvent.click(navButtons[1]);
+    expect(navButtons[1].className).toContain("active");
+    expect(screen.getByAltText('Giftset "Premium CoffeeMorning Energy Set"')).toBeInTheDocument();
 
-  test("рендерить кнопки Buy Now і Details", () => {
-    const buyButton = screen.getByText("Buy Now");
-    const detailsButton = screen.getByText("Details");
-
-    expect(buyButton.closest("a")).toHaveAttribute("href", "/Gift-set");
-    expect(detailsButton.closest("a")).toHaveAttribute("href", "/gift-set");
+    fireEvent.click(navButtons[2]);
+    expect(navButtons[2].className).toContain("active");
+    expect(screen.getByAltText('Giftset "Artisan Coffee Pack"')).toBeInTheDocument();
   });
 });

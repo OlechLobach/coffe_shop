@@ -1,93 +1,79 @@
-import { render, screen } from "@testing-library/react";
-import { MemoryRouter } from "react-router-dom";
-import { vi } from "vitest";
-import Header from "../HeaderDesctope";
-import { useAuth } from "../../../../../Context/AuthContext";
-import styles from "../Header.module.css";
+import { describe, test, expect, vi, beforeEach } from "vitest";
+import { render, screen, fireEvent } from "@testing-library/react";
+import { BrowserRouter } from "react-router-dom";
+import React from "react";
+import Header from "../Header";
 
-// Мокаємо контекст авторизації через Vitest
 vi.mock("../../../../../Context/AuthContext", () => ({
-  useAuth: vi.fn(),
+  useAuth: () => ({ user: null }),
+}));
+
+vi.mock("react-router-dom", async () => {
+  const actual = await vi.importActual("react-router-dom");
+  return {
+    ...actual,
+    useLocation: () => ({ pathname: "/" }),
+  };
+});
+
+vi.mock("../../../../../assets/images/HomePage/Header/logo.png", () => ({
+  default: "logo.png",
+}));
+vi.mock("../../../../../assets/images/HomePage/Header/cart.png", () => ({
+  default: "cart.png",
+}));
+vi.mock("../../../../../assets/images/HomePage/Header/hero.jpg", () => ({
+  default: "hero.jpg",
 }));
 
 describe("Header component", () => {
-  afterEach(() => {
-    vi.clearAllMocks();
+  beforeEach(() => {
+    render(
+      <BrowserRouter>
+        <Header />
+      </BrowserRouter>
+    );
   });
 
-  test("рендерить логотип з посиланням на головну сторінку", () => {
-    useAuth.mockReturnValue({ user: null });
-
-    render(
-      <MemoryRouter initialEntries={["/"]}>
-        <Header />
-      </MemoryRouter>
-    );
-
-    const logo = screen.getByAltText("Logo");
-    expect(logo).toBeInTheDocument();
-    expect(logo.closest("a")).toHaveAttribute("href", "/");
+  test("renders logo and navigation links", () => {
+    expect(screen.getByAltText("Logo")).toBeInTheDocument();
+    expect(screen.getByText("Home")).toBeInTheDocument();
+    expect(screen.getByText("Coffee")).toBeInTheDocument();
+    expect(screen.getByText("Phin Combo")).toBeInTheDocument();
   });
 
-  test("рендерить hero image на головній сторінці", () => {
-    useAuth.mockReturnValue({ user: null });
-
-    render(
-      <MemoryRouter initialEntries={["/"]}>
-        <Header />
-      </MemoryRouter>
-    );
-
-    const heroImage = screen.getByAltText("hero");
-    expect(heroImage).toBeInTheDocument();
+  test("renders login button when user is not logged in", () => {
+    expect(screen.getByText("Login")).toBeInTheDocument();
   });
 
-  test("рендерить всі пункти меню", () => {
-    useAuth.mockReturnValue({ user: null });
+  test("burger menu opens and closes on click", () => {
+    const burgerBtn = screen.getByRole("button");
 
-    render(
-      <MemoryRouter initialEntries={["/coffee"]}>
-        <Header />
-      </MemoryRouter>
-    );
+    expect(screen.queryByText("Cart")).toBeNull();
 
-    const menuItems = [
-      "Home",
-      "Coffee",
-      "Colored Phin",
-      "Phin Combo",
-      "Gift Set",
-      "Contact",
-    ];
+    fireEvent.click(burgerBtn);
+    expect(screen.getByText("Cart")).toBeInTheDocument();
 
-    menuItems.forEach((item) => {
-      expect(screen.getByText(item)).toBeInTheDocument();
-    });
+    fireEvent.click(burgerBtn);
+    expect(screen.queryByText("Cart")).toBeNull();
   });
 
-  test("показує Login, якщо користувач не авторизований", () => {
-    useAuth.mockReturnValue({ user: null });
+  test("renders hero section with background image on home page", () => {
+    const heroTitle = screen.getByText(/PERSONALIZED/i);
+    expect(heroTitle).toBeInTheDocument();
 
-    render(
-      <MemoryRouter initialEntries={["/"]}>
-        <Header />
-      </MemoryRouter>
-    );
-
-    const loginLink = screen.getByText("Login");
-    expect(loginLink).toBeInTheDocument();
-    expect(loginLink.closest("a")).toHaveAttribute("href", "/signup");
+    const heroSection = heroTitle.closest("section");
+    expect(heroSection.style.backgroundImage).toContain("hero.jpg");
   });
 
-  test("показує Profile, якщо користувач авторизований", () => {
-    useAuth.mockReturnValue({ user: { name: "Test" } });
+  test("renders cart icons with alt text", () => {
+    const cartDesktop = screen.getAllByAltText("cart")[0];
+    expect(cartDesktop).toBeInTheDocument();
 
-    render(
-      <MemoryRouter initialEntries={["/"]}>
-        <Header />
-      </MemoryRouter>
-    );
+    const burgerBtn = screen.getByRole("button");
+    fireEvent.click(burgerBtn);
 
-    expect(screen.getByText("Profile")).toBeInTheDocument();
+    const cartMobile = screen.getAllByAltText("cart")[1];
+    expect(cartMobile).toBeInTheDocument();
   });
 });

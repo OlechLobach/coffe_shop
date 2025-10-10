@@ -76,7 +76,6 @@
   max-width: 280px;
 }
 
-/* 🧩 ==== TABLET (до 1024px) ==== */
 @media (max-width: 1024px) {
   .section {
     padding: 80px 30px;
@@ -108,7 +107,6 @@
   }
 }
 
-/* 📱 ==== MOBILE (до 768px) ==== */
 @media (max-width: 768px) {
   .section {
     padding: 60px 16px;
@@ -146,7 +144,6 @@
   }
 }
 
-/* 📱 ==== SMALL MOBILE (до 480px) ==== */
 @media (max-width: 480px) {
   .title {
     font-size: 22px;

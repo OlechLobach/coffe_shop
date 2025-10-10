@@ -50,8 +50,7 @@ export default function ComboSection() {
   return (
     <section className={styles.section}>
       <div className={styles.heading}>
-        <h5 className={styles.subtitle}>Your Personalized Coffee</h5>
-        <h2 className={styles.title}>COMBO PHIN</h2>
+        <h5 className={styles.subtitle}>Your Personalized Combo</h5>
       </div>
 
       {isMobile ? (

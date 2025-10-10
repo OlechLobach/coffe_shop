@@ -42,7 +42,7 @@ export default function ProfileModal({ profile, onClose, onUpdated }) {
       onUpdated();
       onClose();
     } catch (err) {
-      alert("❌ Update failed: " + err.message);
+      alert(" Update failed: " + err.message);
     } finally {
       setLoading(false);
     }

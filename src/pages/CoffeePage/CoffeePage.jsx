@@ -13,7 +13,7 @@ export default function CoffeePage() {
     searchTerm,
     setSearchTerm,
     filters,
-    setFilters,
+    setFilters, 
     sortOption,
     setSortOption,
     visibleProducts,

@@ -53,7 +53,6 @@ export default function CartPage() {
 
   return (
     <section className={styles.cartContainer}>
-      {/* Тости по центру зверху */}
       <Toaster
         position="top-center"
         reverseOrder={false}
