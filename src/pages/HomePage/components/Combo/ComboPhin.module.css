@@ -15,6 +15,7 @@
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
+  z-index: 10;
 }
 
 .subtitle {
@@ -22,6 +23,7 @@
   font-weight: 600;
   font-size: 20px;
   color: #151d28;
+  margin: 0;
 }
     
 .container {
@@ -183,7 +185,7 @@
 
 .arrow {
   position: absolute;
-  top: 50%;
+  top: 60%;
   transform: translateY(-50%);
   background: #c7a17a;
   color: #fff;
@@ -201,28 +203,26 @@
   z-index: 10;
 }
 
-.arrow:hover {
+.arrow:hover:not(:disabled) {
   background: #a07c58;
 }
 
-.arrow.prev { left: 80px; }
-.arrow.next { right: 80px; }
+.arrow:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.arrow.prev { left: 40px; }
+.arrow.next { right: 40px; }
 
 .sliderMobile {
   display: flex;
-  gap: 20px;
+  gap: 16px;
   overflow-x: auto;
-  padding: 20px;
-  padding-right: 40px; /* відступ справа для останньої картки */
+  padding: 10px 16px;
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
-  scroll-padding-left: 20px;
-  scroll-padding-right: 20px;
-}
-
-.sliderMobile::after {
-  content: "";
-  flex: 0 0 20px; /* додатковий простір після останньої картки */
+  justify-content: center;
 }
 
 .sliderMobile::-webkit-scrollbar {
@@ -230,9 +230,9 @@
 }
 
 .sliderMobile .card {
-  min-width: 250px;
-  flex: 0 0 auto;
-  scroll-snap-align: start;
+  flex: 0 0 80%;
+  scroll-snap-align: center;
+  box-sizing: border-box;
   position: relative !important;
   top: auto !important;
   transform: none !important;
@@ -241,77 +241,104 @@
   height: auto;
 }
 
-.sliderMobile .cardImg {
-  height: 180px;
-}
-
-.sliderMobile .buttons {
-  flex-direction: column;
-  align-items: center;
-  margin-left: 0;
-  gap: 8px;
-}
-
-.sliderMobile .btn {
-  width: 80%;
-  font-size: 14px;
-  padding: 8px 16px;
-  border-radius: 25px;
-}
-
+/* ---------- 1024px ---------- */
 @media (max-width: 1024px) {
-  .sliderMobile .card {
-    min-width: 220px;
-    margin-top: 190px; 
+  .section {
+    height: auto;
+    padding-bottom: 80px;
   }
 
-  .sliderMobile .cardImg {
-    height: auto; 
-    aspect-ratio: 4/3; 
+  .heading {
+    position: static;
+    transform: none;
+    margin-top: 60px;
   }
 
-  .sliderMobile .buttons {
-    flex-direction: column;
-    align-items: center;
-    margin-left: 0;
-    gap: 8px;
+  .container {
+    display: none;
   }
 
-  .sliderMobile .btn {
-    width: 80%;
-    font-size: 14px;
-    padding: 8px 16px;
-    border-radius: 25px;
+  .sliderMobile {
+    display: flex;
   }
 }
 
+/* ---------- 768px ---------- */
 @media (max-width: 768px) {
   .sliderMobile .card {
-    min-width: 200px; 
-    margin-top: 190px;
+    flex: 0 0 85%;
   }
 
-  .sliderMobile .cardImg {
+  .cardImg {
     height: auto;
     aspect-ratio: 4/3;
+  }
+
+  .buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .btn {
+    width: 80%;
+  }
+
+  .subtitle {
+    font-size: 18px;
   }
 }
 
+/* ---------- 480px ---------- */
 @media (max-width: 480px) {
-  .sliderMobile .card {
-    margin-top: 130px;
-    min-width: 180px; 
+  .sliderMobile {
+    padding: 10px;
+    gap: 12px;
   }
 
-  .sliderMobile .cardImg {
+  .sliderMobile .card {
+    flex: 0 0 90%;
+  }
+
+  .cardImg {
     height: auto;
     aspect-ratio: 4/3;
   }
 
-  .sliderMobile .btn {
-    width: 75%;
-    padding: 6px 14px;
+  .newPrice {
+    font-size: 16px;
+  }
+
+  .coffeeName {
+    font-size: 18px;
+  }
+
+  .description {
     font-size: 13px;
+  }
+
+  .buttons {
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .btn {
+    width: 80%;
+    font-size: 13px;
+    padding: 8px 12px;
     border-radius: 20px;
+  }
+
+  .arrow,
+  .rightBackground {
+    display: none;
+  }
+
+  .heading {
+    margin-top: 40px;
+  }
+
+  .subtitle {
+    font-size: 14px;
   }
 }
