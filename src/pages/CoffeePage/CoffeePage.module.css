@@ -203,6 +203,9 @@
 }
 
 @media (max-width: 600px) {
+  .phinGrid {
+    grid-template-columns: repeat(1, 1fr);
+  }
   .phinFilters {
     flex-direction: row;
     flex-wrap: wrap;

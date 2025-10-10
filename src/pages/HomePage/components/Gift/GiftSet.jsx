@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import styles from "./GiftSet.module.css";
 import giftImage from "../../../../assets/images/HomePage/Gift/giftset1Img.png"; 
 import giftImage2 from "../../../../assets/images/HomePage/Gift/giftset2Img.png"; 
-import giftImage3 from "../../../../assets/images/HomePage/Gift/giftSet3Img.png";
+import giftImage3 from "../../../../assets/images/HomePage/Gift/giftset3Img.png";
 import mountain from "../../../../assets/images/HomePage/Gift/mountain.png" 
 import iconCoffee from "../../../../assets/images/HomePage/Gift/iconCoffee.png" 
 
