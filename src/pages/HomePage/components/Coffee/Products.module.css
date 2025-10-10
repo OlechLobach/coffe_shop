@@ -189,11 +189,12 @@
 
 .sliderMobile {
   display: flex;
-  gap: 20px;
+  gap: 16px;
   overflow-x: auto;
-  padding: 20px;
+  padding: 10px 16px;
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
+  justify-content: center;
 }
 
 .sliderMobile::-webkit-scrollbar {
@@ -201,9 +202,9 @@
 }
 
 .sliderMobile .card {
-  min-width: 250px;
-  flex: 0 0 auto;
-  scroll-snap-align: start;
+  flex: 0 0 80%;
+  scroll-snap-align: center;
+  box-sizing: border-box;
 }
 
 @media (max-width: 1024px) {
@@ -258,29 +259,21 @@
 }
 
 @media (max-width: 480px) {
-  .sliderMobile .card {
-    min-width: 200px;
+  .sliderMobile {
+    padding: 10px;
+    gap: 12px;
   }
 
-  .card {
-    flex-direction: column;
-    height: auto;
-    margin: 0 auto;
+  .sliderMobile .card {
+    flex: 0 0 90%;
   }
 
   .cardLeft {
-    width: 100%;
-    height: 150px; 
-  }
-
-  .cardLeft img {
-    width: 100%;
-    height: 100%;
-    object-fit: contain;
+    height: 150px;
   }
 
   .cardRight {
-    padding: 10px; 
+    padding: 10px;
     text-align: center;
   }
 
@@ -290,12 +283,10 @@
 
   .coffeeName {
     font-size: 16px;
-    margin: 3px 0;
   }
 
   .description {
     font-size: 12px;
-    margin-bottom: 5px;
   }
 
   .buttons {
@@ -309,61 +300,15 @@
     font-size: 14px;
     padding: 8px 12px;
     border-radius: 20px;
-    text-align: center;
-    box-sizing: border-box;
-    transition: all 0.2s ease;
   }
 
-  .btn:first-child {
-    background: #c7a17a;
-    color: #fff;
-  }
-
-  .btn:first-child:hover {
-    background: #a07c58;
-  }
-
-  .btn:last-child {
-    background: transparent;
-    color: #2e3640;
-  }
-
-  .btn:last-child:hover {
-    text-decoration: underline;
-  }
-
-  .carousel {
-    position: relative;
-    top: 0;
-    left: 0;
-    display: flex;
-    overflow-x: auto;
-    gap: 12px;
-    padding: 20px 0;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-  }
-
-  .slide {
-    flex: 0 0 auto;
-    scroll-snap-align: start;
-    transform: none !important;
-    filter: none !important;
-    opacity: 1 !important;
-    position: relative !important;
-  }
-
+  .carousel,
+  .leftBackground,
   .arrow {
-    display: none; 
-  }
-
-  .leftBackground {
     display: none;
   }
 
   .heading {
-    position: static;
-    transform: none;
     margin-top: 40px;
   }
 

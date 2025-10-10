@@ -16,8 +16,6 @@ html, body {
   display: flex;
   align-items: center;
   position: relative;
-  top: 0;
-  left: 0;
   z-index: 1000;
   overflow: hidden; 
 }
@@ -39,8 +37,8 @@ html, body {
 }
 
 .logo {
-  width: 120px;
-  height: 40px;
+  width: 100%;
+  height: 50px;
 }
 
 .nav {
@@ -117,7 +115,7 @@ html, body {
 
 .hero {
   width: 100vw; 
-  height: 600px;
+  height: 700px;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

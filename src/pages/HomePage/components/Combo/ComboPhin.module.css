@@ -213,8 +213,16 @@
   gap: 20px;
   overflow-x: auto;
   padding: 20px;
+  padding-right: 40px; /* відступ справа для останньої картки */
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory;
+  scroll-padding-left: 20px;
+  scroll-padding-right: 20px;
+}
+
+.sliderMobile::after {
+  content: "";
+  flex: 0 0 20px; /* додатковий простір після останньої картки */
 }
 
 .sliderMobile::-webkit-scrollbar {
